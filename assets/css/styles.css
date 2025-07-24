@@ -1,0 +1,38 @@
+//* Switcher Panel */
+.switcher-panel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  background-color: #f0e6d2;
+  font-weight: bold;
+}
+
+/* Theme Styles */
+body.light-theme {
+  background-color: #fffaf3;
+  color: #333;
+}
+
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.earth-theme {
+  background-color: #f4f1e0;
+  color: #5a4a3c;
+}
+
+/* Font Styles */
+body.serif-font {
+  font-family: 'Georgia', serif;
+}
+
+body.sans-serif-font {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body.monospace-font {
+  font-family: 'Courier New', monospace;
+}
