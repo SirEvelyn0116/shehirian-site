@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
   const themeSelect = document.getElementById('theme-select');
   const fontSelect = document.getElementById('font-select');
 
@@ -22,3 +23,4 @@
   // Set default theme and font
   updateTheme('light');
   updateFont('serif');
+});
