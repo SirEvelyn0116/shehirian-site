@@ -1,6 +1,6 @@
 # Shehirian Website
 
-This repository contains the static website for Shehirian, restructured and styled to resemble sunnylandmills.com.
+This repository contains the static website for Shehirian, restructured and re-styled.
 
 ## Structure
 
