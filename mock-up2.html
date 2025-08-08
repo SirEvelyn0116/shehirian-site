@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mockup Website</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background">
+    <div class="home">
+      <div class="title">shehirian bulgor inc.</div>
+      <div class="mid-spacer"></div>
+      <div class="nav">
+        <h2>Home</h2>
+        <h2><a href="#about-us">About</a></h2>
+        <h2><a href="#products-carousel">Products</a></h2>
+        <h2><a href="#contact">Contact us</a></h2>
+      </div>
+    </div>
+    <!-- Spacer to offset fixed nav -->
+     <div class="spacer"></div>
+     <!-- About US -->
+    <section id="about-us" class="page-section">
+      <h2>About US</h2>
+      <p>Family owned and operated since 1958</p>
+      <p>Scroll down to explore our products</p>
+    </section>
+    <section id="products-carousel" class="page-section">
+      <h2>Our Products</h2>
+      <div class="carousel">
+        <div class="swath icon" data-tooltip="fine soft wheat">
+          <div class="image-container">
+            <img src='img/fine-bulgor-soft-wheat.jpg' alt='fine soft wheat bulgor'>
+          </div>
+          <span>soft wheat fine</span>
+        </div>
+        <div class="swath icon" data-tooltip="medium soft wheat">
+          <div class="image-container">
+            <img src="img/medium-bulgor-soft-wheat.jpg" alt="medium soft wheat bulgor">
+          </div>
+          <span>soft wheat medium</span>
+        </div>
+        <div class="swath icon" data-tooltip="coarse soft wheat">
+          <div class="image-container">
+            <img src="img/coarse-bulgor-soft-wheat.jpg" alt="coarse soft wheat bulgor">
+          </div>
+          <span>soft wheat coarse</span>
+        </div>
+        <div class="swath icon" data-tooltip="extra coarse soft wheat">
+          <div class="image-container">
+            <img src="img/extra-coarse-bulgor-soft-wheat.jpg" alt="extra coarse soft wheat bulgor">
+          </div>
+          <span>soft wheat extra coarse</span>
+        </div>
+        <div class="swath carousel-bg bg-fine-red" data-tooltip="fine red wheat">
+          <!-- img src="img/fine-bulgor-red-wheat.jpg" -->
+          <span>red wheat fine</span>
+        </div>
+        <div class="swath carousel-bg bg-medium-red" data-tooltip="medium red wheat">
+          <!-- img src="img/medium-bulgor-red-wheat.jpg" alt="medium red wheat bulgor" -->
+          <span>red wheat medium</span>
+        </div>
+        <div class="swath carousel-bg bg-coarse-red" data-tooltip="coarse red wheat">
+          <!-- img src="img/coarse-bulgor-red-wheat.jpg" alt="coarse red wheat bulgor" -->
+          <span>red wheat coarse</span>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="contact-container">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p><strong>Address:</strong> 375 Midwest Rd., Toronto, ON</p>
+          <p><strong>Phone:</strong> (416) 757-9495</p>
+          <p><strong>Fax:</strong> (416) 752-9248</p>
+          <p><strong>Email:</strong> info@shehirian.com</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
