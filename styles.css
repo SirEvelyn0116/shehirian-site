@@ -2,13 +2,19 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Poppins';
+      font-family: 'Elgar', 'BayerTypeArchiType', 'Poppins';
       color: black;
       scroll-behavior: smooth;
     }
     @font-face {
         font-family: 'BayerTypeArchiType';
         src: url('./fonts/bayer-typearchitype.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Elgar';
+        src: url('./fonts/elgar.ttf') format('TrueType');
         font-weight: normal;
         font-style: normal;
     }
@@ -239,3 +245,4 @@
   background-color: #ffcc00;
   color: #333;
 }
+
