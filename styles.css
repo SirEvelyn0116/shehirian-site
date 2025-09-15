@@ -171,9 +171,9 @@
       background-repeat: no-repeat;
     }
     /* Background images for each swath */
-    .bg-fine     { background-image: url('bg-design.jpg'); }
-    .bg-medium       { background-image: url('bg-dev.jpg'); }
-    .bg-coarse        { background-image: url('bg-seo.jpg'); }
+    .bg-fine     { background-image: url('img/fine-bulgor-soft-wheat.jpg'); }
+    .bg-medium       { background-image: url('img/medium-bulgor-soft-wheat.jpg'); }
+    .bg-coarse        { background-image: url('img/coarse-bulgor-soft-wheat.jpg'); }
     .bg-extra-coarse   { background-image: url('bg-branding.jpg'); }
     .bg-fine-red  { 
         /*background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/fine-bulgor-red-wheat.jpg'); */
@@ -245,5 +245,6 @@
   background-color: #ffcc00;
   color: #333;
 }
+
 
 
