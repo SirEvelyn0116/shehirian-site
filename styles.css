@@ -2,7 +2,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Elgar', 'BayerTypeArchiType', 'Poppins';
+      font-family: 'Elgar', 'BayerTypeArchiType', 'Poppins', 'PP Neue Montreal', sans-serif;
       color: black;
       scroll-behavior: smooth;
     }
@@ -245,6 +245,7 @@
   background-color: #ffcc00;
   color: #333;
 }
+
 
 
 
