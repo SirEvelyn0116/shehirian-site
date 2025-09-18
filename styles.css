@@ -37,7 +37,7 @@
         align-items: center;
     }
     .title {
-      margin-left: 50px;
+      /* margin-left: 50px; */
       font-size: 48px;
       /* font-weight: bold; */
       font-family: 'Elgar';
@@ -245,6 +245,7 @@
   background-color: #ffcc00;
   color: #333;
 }
+
 
 
 
