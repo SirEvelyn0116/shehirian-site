@@ -37,8 +37,24 @@ body, html {
   justify-content: center;
   font-size: 48px;
   font-family: 'Elgar', serif;
+  background-image: url('assets/img/bulgur-wheat-pile.png');
+  background-size: 100% 400%; /* 4 sections stacked vertically;
+  background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
   color: black;
+}
+/* Each section shows a different vertical slice */
+.slice-1 {
+  background-position: center top;
+}
+.slice-2 {
+  background-position: center 25%;
+}
+.slice-3 {
+  background-position: center 50%;
+}
+.slice-4 {
+  background-position: center bottom;
 }
 /* Dot Navigation */
 .dot-nav {
