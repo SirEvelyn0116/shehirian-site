@@ -5,8 +5,21 @@ body, html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   font-family: 'PP Neue Montreal', sans-serif;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  overflow-x: hidden;
 }
+
+/* Fixed background */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/img/bulgur-wheat-pile.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 
 /* Section Styles */
 .section {
@@ -17,7 +30,7 @@ body, html {
   justify-content: center;
   font-size: 48px;
   font-family: 'Elgar', serif;
-  background-color: wheat;
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
   color: black;
 }
 /* Dot Navigation */
