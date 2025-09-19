@@ -1,26 +1,3 @@
-/* Base Styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  font-family: 'PP Neue Montreal', sans-serif;
-  overflow-y: scroll;
-}
-
-/* Section Styles */
-.section {
-  height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  font-family: 'Elgar', serif;
-  background-color: wheat;
-  color: black;
-}
-
 /* Dot Navigation */
 .dot-nav {
   position: fixed;
@@ -46,4 +23,21 @@ body, html {
   background-color: black;
 }
 
-/* Optional: Highlight active dot with JS */
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .dot-nav {
+    right: 10px;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .section {
+    font-size: 32px;
+    padding: 20px;
+  }
+}
+
