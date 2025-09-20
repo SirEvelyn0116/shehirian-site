@@ -38,23 +38,23 @@ body, html {
   font-size: 48px;
   font-family: 'Elgar', serif;
   background-image: url('assets/img/bulgur-wheat-pile.png');
-  background-size: 100% 400%; /* 4 sections stacked vertically;
+  background-size: 150% 400vh; /* 4 sections stacked vertically;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
   color: black;
 }
 /* Each section shows a different vertical slice */
 .slice-1 {
-  background-position: center top;
+  background-position: center 0vh;
 }
 .slice-2 {
-  background-position: center 25%;
+  background-position: center 100vh;
 }
 .slice-3 {
-  background-position: center 50%;
+  background-position: center 200vh;
 }
 .slice-4 {
-  background-position: center bottom;
+  background-position: center 300vh;
 }
 /* Dot Navigation */
 .dot-nav {
