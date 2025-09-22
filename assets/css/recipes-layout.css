@@ -18,16 +18,16 @@ html, body {
   font-family: 'Elgar', serif;
   color: white;
   background-image: url('../img/bulgur-wheat-pile.png');
-  background-size: 200% 500vh;
+  background-size: 225.23% 150%;
   background-repeat: no-repeat;
 }
 
 /* Slice positions */
-.slice-1 { background-position: center 0vh; }
-.slice-2 { background-position: center 100vh; }
-.slice-3 { background-position: center 200vh; }
-.slice-4 { background-position: center 300vh; }
-.slice-5 { background-position: center 400vh; }
+.slice-1 { background-position: center 0%; }
+.slice-2 { background-position: center 25%; }
+.slice-3 { background-position: center 50%; }
+.slice-4 { background-position: center 75%; }
+.slice-5 { background-position: center 100%; }
 
 /* Dot Navigation */
 .dot-nav {
@@ -41,15 +41,41 @@ html, body {
   z-index: 1000;
 }
 .dot {
+  position: relative;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background-color: #ccc;
   transition: background-color 0.3s ease;
+  overflow: visible;
 }
+
 .dot:hover,
 .dot.active {
   background-color: black;
+}
+
+.label {
+  position: absolute;
+  left: -140px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover .label,
+.dot.active .label {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(-10px);
 }
 
 /* Recipe Grid */
