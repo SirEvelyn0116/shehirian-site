@@ -17,8 +17,8 @@ html, body {
   font-size: 48px;
   font-family: 'Elgar', serif;
   color: white;
-  background-image: url('assets/img/bulgur-wheat-pile.png');
-  background-size: 100% 500vh;
+  background-image: url('../img/bulgur-wheat-pile.png');
+  background-size: 200% 500vh;
   background-repeat: no-repeat;
 }
 
