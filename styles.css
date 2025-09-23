@@ -170,6 +170,11 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+    .carousel-bg > span {
+      color: black;
+      background-color: wheat;
+      padding: 1vh 2vh 1vh 2vh;
+    }
     /* Background images for each swath */
     .bg-fine     { background-image: url('img/fine-bulgor-soft-wheat.jpg'); }
     .bg-medium       { background-image: url('img/medium-bulgor-soft-wheat.jpg'); }
