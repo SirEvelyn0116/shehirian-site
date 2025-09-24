@@ -32,6 +32,7 @@ body, html {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 .title {
   font-size: 48px;
@@ -40,6 +41,9 @@ body, html {
   background-color: wheat;
   left: 0;
 }
+.section {
+    height: 100vh;
+}
 .page-section {
     min-height: 50vh;
 }
@@ -47,7 +51,6 @@ body, html {
     width: 33%;
 }
 .nav {
-  margin-right: 50px;
   color: wheat;
   display: flex;
   flex-direction: column;
