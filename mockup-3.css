@@ -1,0 +1,117 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #f4f4f4;
+  padding: 1em;
+  text-align: center;
+}
+
+.language-switcher {
+  text-align: right;
+  padding: 0.5em 1em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+main {
+  padding: 2em;
+}
+
+section {
+  margin-bottom: 3em;
+}
+
+h1, h2, h3 {
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Product grid */
+.product-grid {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  flex: 1 1 300px;
+  border: 1px solid #ddd;
+  padding: 1em;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+/* Recipe section */
+#recipes {
+  background-color: #f9f9f9;
+  padding: 2em;
+  border-top: 2px solid #eee;
+}
+
+.recipe-card {
+  border: 1px solid #ccc;
+  padding: 1em;
+  background-color: #fff;
+}
+
+/* Contact form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 600px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.75em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #f4f4f4;
+  font-size: 0.9em;
+}
