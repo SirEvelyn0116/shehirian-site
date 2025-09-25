@@ -35,10 +35,12 @@ body, html {
     justify-content: space-between;
 }
 .title {
-  font-size: 48px;
+  font-size: 10vh;
   font-family: 'Elgar';
   color: black;
   background-color: wheat;
+  padding: 0 5vh 0 5vh;
+  border-radius: 0 5vh 5vh 0;
   left: 0;
 }
 .section {
@@ -263,10 +265,10 @@ opacity: 1;
   max-width: 900px;
 }
 .recipe-card {
-  background-color: rgba(255,255,255,0.95);
+  background-color: #5a6345;
   color: #2a241b;
   padding: 24px 20px 20px 20px;
-  border-radius: 10px;
+  border-radius: 30px;
   font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
   transition: transform 0.2s;
