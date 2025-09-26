@@ -16,9 +16,12 @@ jobs:
         with:
           node-version: '18'
 
-      - run: npm install
-      - run: npm run build
-
+      - name: Copy static files to preview folder
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]')
+          mkdir -p previews/$BRANCH_NAME
+          cp -r * previews/$BRANCH_NAME/
+    
       - name: Copy build to preview folder
         run: |
           BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]')
