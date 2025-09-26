@@ -6,24 +6,16 @@ on:
       - main
 
 jobs:
-  build-preview:
+  deploy-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - run: npm install
-      - run: npm run build
-
-      - name: Copy build to preview folder
+      - name: Prepare preview folder
         run: |
           BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]')
           mkdir -p previews/$BRANCH_NAME
-          cp -r dist/* previews/$BRANCH_NAME/
+          rsync -av --exclude='previews' --exclude='.git' ./ previews/$BRANCH_NAME/
 
       - name: Generate index.html
         run: node generate-index.js
@@ -33,3 +25,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./previews
+          destination_dir: ./
