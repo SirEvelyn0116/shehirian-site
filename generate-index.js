@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const previewsDir = path.join(__dirname, 'gh-pages');
+const previewsDir = __dirname;
 const indexPath = path.join(previewsDir, 'index.html');
 
 const branches = fs.readdirSync(previewsDir).filter(name => {

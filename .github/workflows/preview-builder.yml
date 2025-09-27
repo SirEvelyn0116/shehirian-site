@@ -28,10 +28,13 @@ jobs:
           rsync -av --exclude='.git' --exclude='gh-pages' current/ gh-pages/$BRANCH_NAME/
 
       # Step 4: Generate index.html with links to all previews
+      - name: Copy generate-index.js to gh-pages root
+        run: cp current/generate-index.js gh-pages/generate-index.js
+      
       - name: Generate index.html
         run: |
           cd gh-pages
-          node ../generate-index.js
+          node generate-index.js
 
       # Step 5: Deploy updated gh-pages folder
       - name: Deploy to GitHub Pages
