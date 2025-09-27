@@ -1,41 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Shehirian | Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/recipes-layout.css">
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">Shehirian</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Shehirian</h1>
-            <p>Quality and Tradition Since 19XX</p>
-        </div>
-    </section>
-    <section class="main-content container">
-        <h2>Our Story</h2>
-        <p>
-            <!-- Replace this content with shehirian.com intro/about -->
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus euismod nunc, quis tristique risus.
-        </p>
-        <a href="about.html" class="btn">Learn More</a>
-    </section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Shehirian. All rights reserved.</p>
-        </div>
-    </footer>
+  <nav class="dot-nav">
+    <a href="#section1" class="dot active" data-section="section1" title="Home"><span class="label">Home</span></a>
+    <a href="#section2" class="dot" data-section="section2" title="About Us"><span class="label">About Us</span></a>
+    <a href="#section3" class="dot" data-section="section3" title="Our Products"><span class="label">Products</span></a>
+    <a href="#section4" class="dot" data-section="section4" title="Recipes"><span class="label">Recipes</span></a>
+    <a href="#section5" class="dot" data-section="section5" title="Contact Us"><span class="label">Contact</span></a>
+  </nav>
+
+  <section id="section1" class="section slice-1">Home</section>
+  <section id="section2" class="section slice-2">About Us</section>
+  <section id="section3" class="section slice-3">Our Products</section>
+
+  <section id="section4" class="section slice-4">
+    <div class="recipe-grid">
+      <div class="recipe-card">
+        <h2>Bulgur Wheat Salad</h2>
+        <p>Fresh herbs, lemon dressing, and hearty bulgur.</p>
+      </div>
+      <div class="recipe-card">
+        <h2>Spiced Lentil Soup</h2>
+        <p>Comforting, protein-rich, and perfect for fall.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="section5" class="section slice-5">Contact Us</section>
+
+  <!-- JSON-LD for Recipes -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Bulgur Wheat Salad",
+    "image": "https://yourdomain.com/images/bulgur-salad.jpg",
+    "author": { "@type": "Person", "name": "Laurence Evelyn" },
+    "description": "A refreshing Mediterranean salad with bulgur wheat, fresh herbs, and lemon dressing.",
+    "prepTime": "PT15M",
+    "cookTime": "PT10M",
+    "totalTime": "PT25M",
+    "recipeYield": "4 servings",
+    "recipeIngredient": [
+      "1 cup bulgur wheat",
+      "1/2 cup chopped parsley",
+      "1/4 cup chopped mint",
+      "1/2 cup diced cucumber",
+      "2 tbsp olive oil",
+      "1 tbsp lemon juice"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Soak bulgur in boiling water for 10 minutes." },
+      { "@type": "HowToStep", "text": "Mix with herbs, cucumber, and dressing." }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Spiced Lentil Soup",
+    "image": "https://yourdomain.com/images/lentil-soup.jpg",
+    "author": { "@type": "Person", "name": "Laurence Evelyn" },
+    "description": "A warm, spiced soup with red lentils and cumin.",
+    "prepTime": "PT10M",
+    "cookTime": "PT30M",
+    "totalTime": "PT40M",
+    "recipeYield": "4 servings",
+    "recipeIngredient": [
+      "1 cup red lentils",
+      "1 onion",
+      "2 carrots",
+      "1 tsp cumin",
+      "1 tbsp olive oil"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Sauté onion and carrots with cumin." },
+      { "@type": "HowToStep", "text": "Add lentils and simmer until soft." }
+    ]
+  }
+  </script>
 </body>
+
 </html>
