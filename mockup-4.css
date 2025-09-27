@@ -33,6 +33,7 @@ body, html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    min-height: 100vh;
 }
 .title {
   font-size: 10vh;
@@ -363,3 +364,4 @@ opacity: 1;
     padding: 16px 10px 12px 10px;
   }
 }
+
