@@ -41,7 +41,8 @@ body, html {
   color: black;
   background-color: wheat;
   padding: 0 5vh 0 5vh;
-  border-radius: 0 5vh 5vh 0;
+  border-start-end-radius: 5vh;
+  border-end-end-radius: 5vh;
   left: 0;
 }
 .section {
@@ -346,5 +347,6 @@ opacity: 1;
     padding: 16px 10px 12px 10px;
   }
 }
+
 
 
