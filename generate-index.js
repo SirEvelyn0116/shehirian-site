@@ -6,7 +6,11 @@ const indexPath = path.join(previewsDir, 'index.html');
 
 const branches = fs.readdirSync(previewsDir).filter(name => {
   const fullPath = path.join(previewsDir, name);
-  return fs.statSync(fullPath).isDirectory();
+  return (
+    fs.statSync(fullPath).isDirectory() &&
+    !name.startsWith('.') &&
+    name !== 'generate-index.js'
+  );
 });
 
 const html = `
