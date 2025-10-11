@@ -1,3 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+
+const previewsDir = __dirname;
+const indexPath = path.join(previewsDir, 'index.html');
+
+const branches = fs.readdirSync(previewsDir).filter(name => {
+  const fullPath = path.join(previewsDir, name);
+  return fs.statSync(fullPath).isDirectory();
+});
+
+const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,41 +74,29 @@
 </head>
 <body>
   <h1>Feature Branch Previews</h1>
-  
+  ${branches.map(branch => {
+    const thumbJPG = `${branch}/thumbnail.jpg`;
+    const thumbPNG = `${branch}/thumbnail.png`;
+    const thumbPath = fs.existsSync(path.join(previewsDir, thumbJPG))
+      ? thumbJPG
+      : fs.existsSync(path.join(previewsDir, thumbPNG))
+      ? thumbPNG
+      : null;
+
+    return `
       <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./.git/index.html">.git</a>
+        ${
+          thumbPath
+            ? `<img src="./${thumbPath}" alt="${branch} thumbnail">`
+            : `<div class="fallback">📄</div>`
+        }
+        <a href="./${branch}/index.html">${branch}</a>
       </div>
-    
-      <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./dot-navigation-mock-up/index.html">dot-navigation-mock-up</a>
-      </div>
-    
-      <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./feature-dot-navigation/index.html">feature-dot-navigation</a>
-      </div>
-    
-      <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./feature-static-language-switcher/index.html">feature-static-language-switcher</a>
-      </div>
-    
-      <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./fix-labels-active-section/index.html">fix-labels-active-section</a>
-      </div>
-    
-      <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./mock-up/index.html">mock-up</a>
-      </div>
-    
-      <div class="preview">
-        <div class="fallback">📄</div>
-        <a href="./show-labels-on-hover/index.html">show-labels-on-hover</a>
-      </div>
-    
+    `;
+  }).join('')}
 </body>
 </html>
+`;
+
+fs.writeFileSync(indexPath, html.trim());
+console.log(`✅ Generated index.html with ${branches.length} previews and thumbnails.`);
