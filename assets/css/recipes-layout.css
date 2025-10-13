@@ -77,8 +77,7 @@ html, body {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.dot:hover .label,
-.dot.active .label {
+.dot:hover .label {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%) translateX(-10px);
