@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Recipes - Golden Grains Co.</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f6f2;
+    }
+
+    .back-nav {
+      background: #5a6345;
+      padding: 1rem 2rem;
+    }
+
+    .back-nav a {
+      color: #f8f6f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover {
+      color: #a36b1b;
+    }
+
+    .all-recipes-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #55422c;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .recipe-card {
+      background-color: #5a6345;
+      color: #f8f6f2;
+      padding: 24px 20px 20px 20px;
+      border-radius: 30px;
+      font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+
+    .recipe-card h3 {
+      font-size: 1.35rem;
+      margin: 0 0 8px 0;
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      color: #a36b1b;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .recipe-card p {
+      font-size: 1rem;
+      margin: 0 0 8px 0;
+      color: #2a241b;
+    }
+
+    .recipe-meta {
+      font-size: 0.9rem;
+      color: #2a241b;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="index.html">← Back to Home</a>
+  </nav>
+
+  <div class="all-recipes-container">
+    <h1>All Recipes</h1>
+    
+    <div class="recipe-grid">
+      <a href="recipes-pages/classic-tabbouleh.html" class="recipe-card">
+        <h3>Classic Tabbouleh</h3>
+        <p>A refreshing salad with parsley, mint, tomatoes, and fine bulgur.</p>
+        <div class="recipe-meta">
+          <strong>Category:</strong> Salad | <strong>Cuisine:</strong> Middle Eastern
+        </div>
+      </a>
+
+      <a href="recipes-pages/hearty-bulgur-pilaf.html" class="recipe-card">
+        <h3>Hearty Bulgur Pilaf</h3>
+        <p>Coarse bulgur simmered with vegetables and spices for a comforting meal.</p>
+        <div class="recipe-meta">
+          <strong>Category:</strong> Main Dish | <strong>Cuisine:</strong> Middle Eastern
+        </div>
+      </a>
+
+      <a href="recipes-pages/bulgur-wheat-salad.html" class="recipe-card">
+        <h3>Bulgur Wheat Salad</h3>
+        <p>Fresh herbs, lemon dressing, and hearty bulgur.</p>
+        <div class="recipe-meta">
+          <strong>Category:</strong> Salad | <strong>Cuisine:</strong> Mediterranean
+        </div>
+      </a>
+
+      <a href="recipes-pages/spiced-lentil-soup.html" class="recipe-card">
+        <h3>Spiced Lentil Soup</h3>
+        <p>Comforting, protein-rich, and perfect for fall.</p>
+        <div class="recipe-meta">
+          <strong>Category:</strong> Soup | <strong>Cuisine:</strong> Middle Eastern
+        </div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
