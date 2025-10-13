@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="recipe-title">Recipe</title>
+  <link rel="stylesheet" href="../assets/css/recipes-styles.css" />
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">← Back to Home</a>
+    <a href="../all-recipes.html">← All Recipes</a>
+  </nav>
+  
+  <main class="recipe">
+    <h1 id="recipe-name">Recipe Name</h1>
+    <p><strong>Category:</strong> <span id="recipe-category"></span></p>
+    <p><strong>Cuisine:</strong> <span id="recipe-cuisine"></span></p>
+    <p><strong>Servings:</strong> <span id="recipe-yield"></span></p>
+    <p><strong>Prep Time:</strong> <span id="recipe-prep-time"></span> | <strong>Cook Time:</strong> <span id="recipe-cook-time"></span> | <strong>Total:</strong> <span id="recipe-total-time"></span></p>
+
+    <section>
+      <h2>Description</h2>
+      <p id="recipe-description"></p>
+    </section>
+
+    <section>
+      <h2>Ingredients</h2>
+      <ul id="recipe-ingredients"></ul>
+    </section>
+
+    <section>
+      <h2>Instructions</h2>
+      <ol id="recipe-instructions"></ol>
+    </section>
+  </main>
+
+  <script type="application/ld+json" id="recipe-schema">
+  </script>
+
+  <script>
+    // Load hearty-bulgur-pilaf recipe data
+    const recipeName = 'hearty-bulgur-pilaf';
+    
+    fetch(`../recipes/${recipeName}.json`)
+      .then(res => {
+        if (!res.ok) throw new Error('Recipe not found');
+        return res.json();
+      })
+      .then(data => {
+        // Set page title
+        document.getElementById('recipe-title').textContent = data.name;
+        document.getElementById('recipe-name').textContent = data.name;
+        
+        // Set recipe metadata
+        document.getElementById('recipe-category').textContent = data.recipeCategory || 'N/A';
+        document.getElementById('recipe-cuisine').textContent = data.recipeCuisine || 'N/A';
+        document.getElementById('recipe-yield').textContent = data.recipeYield || 'N/A';
+        document.getElementById('recipe-description').textContent = data.description || '';
+        
+        // Format time strings
+        const formatTime = (isoTime) => {
+          if (!isoTime) return 'N/A';
+          const match = isoTime.match(/PT(\d+)M/);
+          return match ? `${match[1]} minutes` : isoTime;
+        };
+        
+        document.getElementById('recipe-prep-time').textContent = formatTime(data.prepTime);
+        document.getElementById('recipe-cook-time').textContent = formatTime(data.cookTime);
+        document.getElementById('recipe-total-time').textContent = formatTime(data.totalTime);
+        
+        // Populate ingredients
+        const ingredientsList = document.getElementById('recipe-ingredients');
+        ingredientsList.innerHTML = '';
+        data.recipeIngredient.forEach(ingredient => {
+          const li = document.createElement('li');
+          li.textContent = ingredient;
+          ingredientsList.appendChild(li);
+        });
+        
+        // Populate instructions
+        const instructionsList = document.getElementById('recipe-instructions');
+        instructionsList.innerHTML = '';
+        data.recipeInstructions.forEach(step => {
+          const li = document.createElement('li');
+          li.textContent = step.text || step;
+          instructionsList.appendChild(li);
+        });
+        
+        // Add JSON-LD schema
+        document.getElementById('recipe-schema').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(err => {
+        console.error('Error loading recipe:', err);
+        document.querySelector('.recipe').innerHTML = '<h1>Recipe Not Found</h1><p>The recipe you are looking for could not be loaded.</p>';
+      });
+  </script>
+</body>
+</html>
