@@ -1,0 +1,79 @@
+//* Switcher Panel */
+.switcher-panel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  background-color: #f0e6d2;
+  font-weight: bold;
+}
+
+/* Theme Styles */
+body.light-theme {
+  background-color: #fffaf3;
+  color: #333;
+}
+
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.earth-theme {
+  background-color: #f4f1e0;
+  color: #5a4a3c;
+}
+
+/* Font Styles */
+body.serif-font {
+  font-family: 'Georgia', serif;
+}
+
+body.sans-serif-font {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body.monospace-font {
+  font-family: 'Courier New', monospace;
+}
+
+/* Recipe Grid Styles */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.recipe-card {
+  background-color: #5a6345;
+  color: #2a241b;
+  padding: 24px 20px 20px 20px;
+  border-radius: 30px;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+.recipe-card h3 {
+  font-size: 1.35rem;
+  margin: 0 0 8px 0;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  color: #a36b1b;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.recipe-card p {
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
