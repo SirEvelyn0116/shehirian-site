@@ -1,19 +1,52 @@
 body {
   font-family: system-ui, sans-serif;
-  margin: 2rem;
+  margin: 0;
+  padding: 0;
   background: #fdfdfd;
   color: #333;
+}
+
+.back-nav {
+  background: #5a6345;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.back-nav a {
+  color: #f8f6f2;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.back-nav a:hover {
+  color: #a36b1b;
+}
+
+.recipe {
+  margin: 2rem;
+  max-width: 900px;
+  padding: 0 1rem;
 }
 
 .recipe h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  color: #55422c;
 }
 
 .recipe section {
   margin-top: 1.5rem;
 }
 
+.recipe h2 {
+  color: #55422c;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
 ul, ol {
   padding-left: 1.5rem;
+  line-height: 1.6;
 }
