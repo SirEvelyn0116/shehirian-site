@@ -15,7 +15,7 @@
       <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
       <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
     </div>
-    <div class="home">
+    <div class="home section" id="home">
       <div class="title" data-i18n="company">shehirian bulgor inc.</div>
       <nav class="dot-nav">
         <a href="#home" class="dot active" data-section="home" title="Home"><span class="label" data-i18n="nav_home">Home</span></a>
@@ -28,12 +28,12 @@
     <!-- Spacer to offset fixed nav -->
     <!-- div class="spacer"></div -->
     <!-- About US -->
-    <section id="about-us" class="page-section">
+    <section id="about-us" class="page-section section">
       <h2 data-i18n="about_title">About US</h2>
       <p data-i18n="about_line1">Family owned and operated since 1958</p>
       <p data-i18n="about_line2">Scroll down to explore our products</p>
     </section>
-    <section id="products-carousel" class="page-section">
+    <section id="products-carousel" class="page-section section">
       <h2 data-i18n="products_title">Our Products</h2>
       <div class="carousel">
         <div class="swath icon" data-tooltip="fine soft wheat">
@@ -75,7 +75,7 @@
       </div>
     </section>
     <!-- RECIPE SECTION 4 (Added) -->
-    <section id="recipes" class="section-recipes">
+    <section id="recipes" class="section-recipes section">
       <h2>Featured Recipes</h2>
       <div class="recipe-grid">
         <div class="recipe-card">
@@ -105,7 +105,7 @@
     </section>
     <!-- END RECIPE SECTION -->
 
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section section">
       <h2 data-i18n="contact_title">Contact Us</h2>
       <div class="contact-container">
         <!-- Contact Info -->
@@ -239,5 +239,7 @@
     }
     window.onload = function() { setLanguage('en'); }
   </script>
+
+  <script src="scroll-nav.js"></script>
 </body>
 </html>
