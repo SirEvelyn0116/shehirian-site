@@ -32,5 +32,59 @@
     { "@type": "HowToStep", "text": "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed." },
     { "@type": "HowToStep", "text": "Pour broth over meatballs and serve." }
   ],
-  "keywords": "royal soup, lemon meatball soup, bulghur soup"
+  "keywords": "royal soup, lemon meatball soup, bulghur soup",
+  "translations": {
+    "fr": {
+      "name": "Soupe Royale",
+      "recipeCategory": "Soupe",
+      "recipeCuisine": "Moyen-Orient",
+      "recipeYield": "6 portions",
+      "recipeIngredient": [
+        "1/2 gallon de bouillon de poulet",
+        "1/2 lb. de bœuf haché (pas trop maigre)",
+        "1/4 tasse de riz cru",
+        "1/4 tasse d'oignon très finement haché",
+        "1/4 tasse de persil",
+        "1/4 tasse de jus de citron",
+        "1/4 tasse de céleri finement haché",
+        "1/4 c. à thé de sel",
+        "Tranches de 2 citrons"
+      ],
+      "recipeInstructions": [
+        "Mélanger la viande crue, le blé bulgur, l'oignon, le persil et l'assaisonnement ensemble et façonner en boules de 1\" de diamètre.",
+        "Ajouter le riz au mélange de boulettes de viande.",
+        "Ajouter les boulettes de viande au bouillon de poulet chaud et laisser mijoter jusqu'à ce qu'elles soient bien cuites.",
+        "Ajouter le jus de citron et le céleri. Laisser mijoter pendant 10 minutes.",
+        "Ajouter le sel et les tranches de citron. Laisser mijoter pendant 5 minutes.",
+        "Ajuster l'acidité, la salinité ou l'épaisseur avec du sucre, de l'eau ou du riz au besoin.",
+        "Verser le bouillon sur les boulettes de viande et servir."
+      ]
+    },
+    "ar": {
+      "name": "شوربة ملكية",
+      "recipeCategory": "شوربة",
+      "recipeCuisine": "شرق أوسطي",
+      "recipeYield": "6 حصص",
+      "recipeIngredient": [
+        "نصف جالون مرق دجاج",
+        "نصف رطل لحم بقري مفروم (ليس قليل الدهن)",
+        "ربع كوب أرز نيء",
+        "ربع كوب بصل مفروم ناعماً جداً",
+        "ربع كوب بقدونس",
+        "ربع كوب عصير ليمون",
+        "ربع كوب كرفس مفروم ناعماً",
+        "ربع ملعقة صغيرة ملح",
+        "شرائح من 2 ليمون"
+      ],
+      "recipeInstructions": [
+        "اخلط اللحم النيء، البرغل، البصل، البقدونس والتوابل معاً واشكلها على شكل كرات بقطر 1 بوصة.",
+        "أضف الأرز إلى خليط كرات اللحم.",
+        "أضف كرات اللحم إلى مرق الدجاج الساخن واتركها تنضج حتى تنضج تماماً.",
+        "أضف عصير الليمون والكرفس. اتركه ينضج لمدة 10 دقائق.",
+        "أضف الملح وشرائح الليمون. اتركه ينضج لمدة 5 دقائق.",
+        "اضبط الحموضة، الملوحة، أو السماكة بالسكر، الماء، أو الأرز حسب الحاجة.",
+        "اسكب المرق فوق كرات اللحم وقدمه."
+      ]
+    }
+  }
 }

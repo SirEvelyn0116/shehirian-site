@@ -49,6 +49,48 @@
   <script>
     // Load royal-soup recipe data
     const recipeName = 'royal-soup';
+    let recipeData = null;
+    let currentLang = 'en';
+    
+    // Static translations for labels
+    const labels = {
+      en: {
+        category: "Category:",
+        cuisine: "Cuisine:",
+        servings: "Servings:",
+        prepTime: "Prep Time:",
+        cookTime: "Cook Time:",
+        total: "Total:",
+        description: "Description",
+        ingredients: "Ingredients",
+        instructions: "Instructions",
+        minutes: "minutes"
+      },
+      fr: {
+        category: "Catégorie :",
+        cuisine: "Cuisine :",
+        servings: "Portions :",
+        prepTime: "Temps de préparation :",
+        cookTime: "Temps de cuisson :",
+        total: "Total :",
+        description: "Description",
+        ingredients: "Ingrédients",
+        instructions: "Instructions",
+        minutes: "minutes"
+      },
+      ar: {
+        category: "الفئة:",
+        cuisine: "المطبخ:",
+        servings: "الحصص:",
+        prepTime: "وقت التحضير:",
+        cookTime: "وقت الطهي:",
+        total: "المجموع:",
+        description: "الوصف",
+        ingredients: "المكونات",
+        instructions: "التعليمات",
+        minutes: "دقائق"
+      }
+    };
     
     fetch(`../recipes/${recipeName}.json`)
       .then(res => {
@@ -56,52 +98,86 @@
         return res.json();
       })
       .then(data => {
-        // Set page title
-        document.getElementById('recipe-title').textContent = data.name;
-        document.getElementById('recipe-name').textContent = data.name;
-        
-        // Set recipe metadata
-        document.getElementById('recipe-category').textContent = data.recipeCategory || 'N/A';
-        document.getElementById('recipe-cuisine').textContent = data.recipeCuisine || 'N/A';
-        document.getElementById('recipe-yield').textContent = data.recipeYield || 'N/A';
-        document.getElementById('recipe-description').textContent = data.description || '';
-        
-        // Format time strings
-        const formatTime = (isoTime) => {
-          if (!isoTime) return 'N/A';
-          const match = isoTime.match(/PT(\d+)M/);
-          return match ? `${match[1]} minutes` : isoTime;
-        };
-        
-        document.getElementById('recipe-prep-time').textContent = formatTime(data.prepTime);
-        document.getElementById('recipe-cook-time').textContent = formatTime(data.cookTime);
-        document.getElementById('recipe-total-time').textContent = formatTime(data.totalTime);
-        
-        // Populate ingredients
-        const ingredientsList = document.getElementById('recipe-ingredients');
-        ingredientsList.innerHTML = '';
-        data.recipeIngredient.forEach(ingredient => {
-          const li = document.createElement('li');
-          li.textContent = ingredient;
-          ingredientsList.appendChild(li);
-        });
-        
-        // Populate instructions
-        const instructionsList = document.getElementById('recipe-instructions');
-        instructionsList.innerHTML = '';
-        data.recipeInstructions.forEach(step => {
-          const li = document.createElement('li');
-          li.textContent = step.text || step;
-          instructionsList.appendChild(li);
-        });
-        
-        // Add JSON-LD schema
-        document.getElementById('recipe-schema').textContent = JSON.stringify(data, null, 2);
+        recipeData = data;
+        renderRecipe('en');
       })
       .catch(err => {
         console.error('Error loading recipe:', err);
         document.querySelector('.recipe').innerHTML = '<h1>Recipe Not Found</h1><p>The recipe you are looking for could not be loaded.</p>';
       });
+
+    function renderRecipe(lang) {
+      if (!recipeData) return;
+      
+      currentLang = lang;
+      const translation = recipeData.translations && recipeData.translations[lang];
+      const label = labels[lang];
+      
+      // Get translated or default values
+      const name = translation?.name || recipeData.name;
+      const category = translation?.recipeCategory || recipeData.recipeCategory;
+      const cuisine = translation?.recipeCuisine || recipeData.recipeCuisine;
+      const recipeYield = translation?.recipeYield || recipeData.recipeYield;
+      const ingredients = translation?.recipeIngredient || recipeData.recipeIngredient;
+      const instructions = translation?.recipeInstructions || recipeData.recipeInstructions;
+      
+      // Set page title
+      document.getElementById('recipe-title').textContent = name;
+      document.getElementById('recipe-name').textContent = name;
+      
+      // Set recipe metadata with translated labels
+      document.querySelector('p:has(#recipe-category) strong').textContent = label.category;
+      document.getElementById('recipe-category').textContent = category || 'N/A';
+      
+      document.querySelector('p:has(#recipe-cuisine) strong').textContent = label.cuisine;
+      document.getElementById('recipe-cuisine').textContent = cuisine || 'N/A';
+      
+      document.querySelector('p:has(#recipe-yield) strong').textContent = label.servings;
+      document.getElementById('recipe-yield').textContent = recipeYield || 'N/A';
+      
+      // Format time strings
+      const formatTime = (isoTime) => {
+        if (!isoTime) return 'N/A';
+        const match = isoTime.match(/PT(\d+)M/);
+        return match ? `${match[1]} ${label.minutes}` : isoTime;
+      };
+      
+      const prepTimeStrongs = document.querySelectorAll('p:has(#recipe-prep-time) strong');
+      prepTimeStrongs[0].textContent = label.prepTime;
+      document.getElementById('recipe-prep-time').textContent = formatTime(recipeData.prepTime);
+      
+      prepTimeStrongs[1].textContent = label.cookTime;
+      document.getElementById('recipe-cook-time').textContent = formatTime(recipeData.cookTime);
+      
+      prepTimeStrongs[2].textContent = label.total;
+      document.getElementById('recipe-total-time').textContent = formatTime(recipeData.totalTime);
+      
+      // Update section headings
+      document.querySelector('section:has(#recipe-description) h2').textContent = label.description;
+      document.querySelector('section:has(#recipe-ingredients) h2').textContent = label.ingredients;
+      document.querySelector('section:has(#recipe-instructions) h2').textContent = label.instructions;
+      
+      // Populate ingredients
+      const ingredientsList = document.getElementById('recipe-ingredients');
+      ingredientsList.innerHTML = '';
+      ingredients.forEach(ingredient => {
+        const li = document.createElement('li');
+        li.textContent = ingredient;
+        ingredientsList.appendChild(li);
+      });
+      
+      // Populate instructions
+      const instructionsList = document.getElementById('recipe-instructions');
+      instructionsList.innerHTML = '';
+      instructions.forEach((step, index) => {
+        const li = document.createElement('li');
+        li.textContent = typeof step === 'string' ? step : (step.text || step);
+        instructionsList.appendChild(li);
+      });
+      
+      // Add JSON-LD schema
+      document.getElementById('recipe-schema').textContent = JSON.stringify(recipeData, null, 2);
+    }
 
     // Language switcher functionality
     function setLanguage(lang) {
@@ -111,6 +187,9 @@
       document.getElementById('lang-fr').classList.remove('active-lang');
       document.getElementById('lang-ar').classList.remove('active-lang');
       document.getElementById('lang-' + lang).classList.add('active-lang');
+      
+      // Render recipe with new language
+      renderRecipe(lang);
     }
     window.onload = function() { setLanguage('en'); }
   </script>
