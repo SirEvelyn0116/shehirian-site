@@ -8,13 +8,9 @@ body {
 
 /* Language Switcher Navigation */
 .lang-switcher-nav {
-  position: fixed;
-  top: 20px;
-  right: 20px;
   display: flex;
   flex-direction: row;
   gap: 10px;
-  z-index: 100;
 }
 
 .lang-switcher-nav button {
@@ -49,6 +45,13 @@ body {
 .back-nav {
   background: #5a6345;
   padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-nav .nav-links {
   display: flex;
   gap: 1rem;
 }
@@ -89,4 +92,19 @@ body {
 ul, ol {
   padding-left: 1.5rem;
   line-height: 1.6;
+}
+
+/* RTL Support */
+body[dir="rtl"] .back-nav {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .back-nav .nav-links {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] ul,
+body[dir="rtl"] ol {
+  padding-left: 0;
+  padding-right: 1.5rem;
 }
