@@ -8,8 +8,16 @@
 </head>
 <body>
   <nav class="back-nav">
-    <a href="../index.html">← Back to Home</a>
-    <a href="../all-recipes.html">← All Recipes</a>
+    <div class="nav-links">
+      <a href="../index.html">← Back to Home</a>
+      <a href="../all-recipes.html">← All Recipes</a>
+    </div>
+    <!-- Language Switcher inside nav bar -->
+    <div id="language-switcher" class="lang-switcher-nav">
+      <button onclick="setLanguage('en')" id="lang-en" aria-label="English" title="English">EN</button>
+      <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
+      <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
+    </div>
   </nav>
   
   <main class="recipe">
@@ -94,6 +102,17 @@
         console.error('Error loading recipe:', err);
         document.querySelector('.recipe').innerHTML = '<h1>Recipe Not Found</h1><p>The recipe you are looking for could not be loaded.</p>';
       });
+
+    // Language switcher functionality
+    function setLanguage(lang) {
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+      // Highlight current language
+      document.getElementById('lang-en').classList.remove('active-lang');
+      document.getElementById('lang-fr').classList.remove('active-lang');
+      document.getElementById('lang-ar').classList.remove('active-lang');
+      document.getElementById('lang-' + lang).classList.add('active-lang');
+    }
+    window.onload = function() { setLanguage('en'); }
   </script>
 </body>
 </html>
