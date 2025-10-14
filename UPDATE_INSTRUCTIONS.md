@@ -21,6 +21,22 @@ The following branches already have the correct version matching `main`:
 - mock-up
 - copilot/update-preview-builder-yml
 
+## Automated Update via GitHub Actions (Recommended)
+
+The easiest way to update all branches is to use the automated GitHub Actions workflow:
+
+1. Go to the **Actions** tab in the GitHub repository
+2. Select the **"Sync Preview Builder Workflow"** workflow from the left sidebar
+3. Click **"Run workflow"** button
+4. Choose whether to do a dry run (to preview changes) or apply the updates
+5. Click **"Run workflow"** to execute
+
+The workflow will:
+- Check all branches for outdated `preview-builder.yml` files
+- Automatically update any branches that don't match the main branch version
+- Skip branches that are already up-to-date
+- Provide a summary of all actions taken
+
 ## Manual Update Process
 
 For each branch that needs updating, follow these steps:
