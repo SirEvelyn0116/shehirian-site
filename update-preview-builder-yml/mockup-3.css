@@ -1,0 +1,61 @@
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #eee;
+  padding: 1em;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1em;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.language-switcher {
+  text-align: right;
+  padding: 0.5em 1em;
+}
+
+section {
+  padding: 2em;
+  border-bottom: 1px solid #ddd;
+}
+
+h1, h2 {
+  margin-bottom: 0.5em;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1em;
+  padding: 1em 0;
+}
+
+.product-card {
+  min-width: 200px;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5em;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #eee;
+}
