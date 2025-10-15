@@ -1,6 +1,6 @@
 name: Sync Preview Builder Workflow
 
-# This workflow synchronizes the preview-builder.yml file across all branches
+# This workflow synchronizes the preview-builder.yml and generate-index.js files across all branches
 # Run manually to update outdated branches to match the main branch version
 
 on:
@@ -35,7 +35,7 @@ jobs:
         run: |
           git fetch --all
           
-      - name: Sync preview-builder.yml to branches
+      - name: Sync preview-builder.yml and generate-index.js to branches
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run }}
@@ -69,21 +69,49 @@ jobs:
               continue
             fi
             
-            # Check if file exists on branch
+            # Check if preview-builder.yml exists on branch
             if ! git show "origin/$branch:.github/workflows/preview-builder.yml" &>/dev/null; then
               echo "  ✗ preview-builder.yml not found on branch, skipping"
               SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
               continue
             fi
             
-            # Compare files
+            # Check if generate-index.js exists on branch
+            if ! git show "origin/$branch:generate-index.js" &>/dev/null; then
+              echo "  ✗ generate-index.js not found on branch, skipping"
+              SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+              continue
+            fi
+            
+            # Compare preview-builder.yml
+            WORKFLOW_MATCHES=false
             if diff <(git show main:.github/workflows/preview-builder.yml) <(git show "origin/$branch:.github/workflows/preview-builder.yml") &>/dev/null; then
+              WORKFLOW_MATCHES=true
+            fi
+            
+            # Compare generate-index.js
+            GENERATE_INDEX_MATCHES=false
+            if diff <(git show main:generate-index.js) <(git show "origin/$branch:generate-index.js") &>/dev/null; then
+              GENERATE_INDEX_MATCHES=true
+            fi
+            
+            # If both files match, skip
+            if [ "$WORKFLOW_MATCHES" = true ] && [ "$GENERATE_INDEX_MATCHES" = true ]; then
               echo "  ✓ Already up to date"
               SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
               continue
             fi
             
-            echo "  → Needs update"
+            # Determine what needs updating
+            FILES_TO_UPDATE=()
+            if [ "$WORKFLOW_MATCHES" = false ]; then
+              FILES_TO_UPDATE+=("preview-builder.yml")
+            fi
+            if [ "$GENERATE_INDEX_MATCHES" = false ]; then
+              FILES_TO_UPDATE+=("generate-index.js")
+            fi
+            
+            echo "  → Needs update: ${FILES_TO_UPDATE[*]}"
             
             if [ "$DRY_RUN" = "true" ]; then
               echo "  [DRY RUN] Would update $branch"
@@ -92,13 +120,21 @@ jobs:
               # Checkout the branch
               git checkout "origin/$branch" -b "$branch" 2>/dev/null || git checkout "$branch"
               
-              # Copy the file from main
-              git show main:.github/workflows/preview-builder.yml > .github/workflows/preview-builder.yml
+              # Copy the files from main
+              if [ "$WORKFLOW_MATCHES" = false ]; then
+                git show main:.github/workflows/preview-builder.yml > .github/workflows/preview-builder.yml
+                git add .github/workflows/preview-builder.yml
+              fi
+              
+              if [ "$GENERATE_INDEX_MATCHES" = false ]; then
+                git show main:generate-index.js > generate-index.js
+                git add generate-index.js
+              fi
               
               # Commit and push
-              git add .github/workflows/preview-builder.yml
-              git commit -m "chore: sync preview-builder.yml with main branch" \
-                         -m "This automated commit updates preview-builder.yml to match the version on main branch." \
+              git commit -m "chore: sync preview-builder.yml and generate-index.js with main branch" \
+                         -m "This automated commit updates preview-builder.yml and generate-index.js to match the version on main branch." \
+                         -m "Updated files: ${FILES_TO_UPDATE[*]}" \
                          -m "Updated by: sync-preview-builder workflow"
               
               git push origin "$branch"
