@@ -33,7 +33,7 @@ Since direct push access to other branches is restricted in this environment, I 
 This is the easiest and most reliable way to update all branches. The workflow:
 - Can be triggered manually from the GitHub Actions tab
 - Automatically detects which branches need updating
-- Updates the `preview-builder.yml` file on each outdated branch
+- Updates the `preview-builder.yml` and `generate-index.js` files on each outdated branch
 - Supports dry-run mode to preview changes before applying
 - Requires no local setup or git credentials
 
@@ -106,6 +106,7 @@ The updated `preview-builder.yml` on main has several improvements over the old 
 - Improved rsync exclusions
 - More detailed step comments
 - Publishes to `./gh-pages` without destination_dir
+- Ensures generate-index.js consistency across all branches
 ```
 
 These changes provide better isolation and preservation of existing branch previews.
@@ -148,6 +149,6 @@ All branches should show "✓ matches main"
 
 ## Conclusion
 
-The task infrastructure is complete. The GitHub Actions workflow provides an automated, user-friendly way to update the `preview-builder.yml` file across all branches. Once the workflow is triggered, it will automatically update the 2 outdated branches (`feature-dot-navigation` and `feature-test-preview`) to match the version on the main branch.
+The task infrastructure is complete. The GitHub Actions workflow provides an automated, user-friendly way to update the `preview-builder.yml` and `generate-index.js` files across all branches. Once the workflow is triggered, it will automatically update the 2 outdated branches (`feature-dot-navigation` and `feature-test-preview`) to match the versions on the main branch.
 
 All tools, scripts, and documentation are in place and ready to use. 🎉

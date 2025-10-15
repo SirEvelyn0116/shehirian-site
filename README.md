@@ -27,16 +27,16 @@ This repository uses a GitHub Actions workflow to automatically create preview d
 
 - Each feature branch is automatically deployed to `https://<username>.github.io/<repo>/<branch-name>/`
 - An index page at `https://<username>.github.io/<repo>/` lists all available branch previews
-- The preview system is managed by `.github/workflows/preview-builder.yml`
+- The preview system is managed by `.github/workflows/preview-builder.yml` and `generate-index.js`
 
 ### Maintaining the Preview System
 
-To ensure all branches use the same preview builder workflow:
+To ensure all branches use the same preview builder workflow and index generator:
 
 **Option 1: Automated Update (Recommended)**
 - Navigate to the Actions tab
 - Run the "Sync Preview Builder Workflow" 
-- This will automatically update all branches to match the main branch version
+- This will automatically update all branches to match the main branch versions of both `preview-builder.yml` and `generate-index.js`
 
 **Option 2: Manual Update**
 - Run `./update-preview-builder.sh` from your local repository with push access
