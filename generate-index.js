@@ -4,14 +4,35 @@ const path = require('path');
 const previewsDir = __dirname;
 const indexPath = path.join(previewsDir, 'index.html');
 
-const branches = fs.readdirSync(previewsDir).filter(name => {
-  const fullPath = path.join(previewsDir, name);
-  return (
-    fs.statSync(fullPath).isDirectory() &&
-    !name.startsWith('.') &&
-    name !== 'generate-index.js'
-  );
-});
+// Get all directories, filter out deleted branches, and sort by last modified date
+const branches = fs.readdirSync(previewsDir)
+  .filter(name => {
+    const fullPath = path.join(previewsDir, name);
+    try {
+      const stat = fs.statSync(fullPath);
+      // Only include directories that have an index.html file (valid previews)
+      return stat.isDirectory() && fs.existsSync(path.join(fullPath, 'index.html'));
+    } catch (err) {
+      // Skip if path doesn't exist or can't be accessed
+      return false;
+    }
+  })
+  .map(name => {
+    const fullPath = path.join(previewsDir, name);
+    const stat = fs.statSync(fullPath);
+    return {
+      name,
+      mtime: stat.mtime,
+      mtimeStr: stat.mtime.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    };
+  })
+  .sort((a, b) => b.mtime - a.mtime); // Sort by most recent first
 
 const html = `
 <!DOCTYPE html>
@@ -66,19 +87,29 @@ const html = `
       border-radius: 4px;
       border: 1px solid #ccc;
     }
+    .preview-info {
+      flex: 1;
+    }
     .preview a {
       font-size: 1rem;
       color: #007acc;
       text-decoration: none;
+      display: block;
+      margin-bottom: 0.25rem;
     }
     .preview a:hover {
       text-decoration: underline;
+    }
+    .preview .date {
+      font-size: 0.85rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <h1>Feature Branch Previews</h1>
-  ${branches.map(branch => {
+  ${branches.map(branchObj => {
+    const branch = branchObj.name;
     const thumbJPG = `${branch}/thumbnail.jpg`;
     const thumbPNG = `${branch}/thumbnail.png`;
     const thumbPath = fs.existsSync(path.join(previewsDir, thumbJPG))
@@ -94,7 +125,10 @@ const html = `
             ? `<img src="./${thumbPath}" alt="${branch} thumbnail">`
             : `<div class="fallback">📄</div>`
         }
-        <a href="./${branch}/index.html">${branch}</a>
+        <div class="preview-info">
+          <a href="./${branch}/index.html">${branch}</a>
+          <div class="date">Last updated: ${branchObj.mtimeStr}</div>
+        </div>
       </div>
     `;
   }).join('')}
