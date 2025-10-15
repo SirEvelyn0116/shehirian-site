@@ -1,11 +1,11 @@
-# Instructions to Update preview-builder.yml Across All Branches
+# Instructions to Update preview-builder.yml and generate-index.js Across All Branches
 
 ## Overview
-This document provides instructions to update the `preview-builder.yml` workflow file across all branches to match the version on the `main` branch.
+This document provides instructions to update the `preview-builder.yml` workflow file and `generate-index.js` script across all branches to match the versions on the `main` branch.
 
 ## Branches That Need Updates
 
-The following branches have outdated versions of `.github/workflows/preview-builder.yml` and need to be updated:
+The following branches have outdated versions of `.github/workflows/preview-builder.yml` and/or `generate-index.js` and need to be updated:
 
 1. **feature-dot-navigation**
 2. **feature-test-preview**
@@ -32,8 +32,8 @@ The easiest way to update all branches is to use the automated GitHub Actions wo
 5. Click **"Run workflow"** to execute
 
 The workflow will:
-- Check all branches for outdated `preview-builder.yml` files
-- Automatically update any branches that don't match the main branch version
+- Check all branches for outdated `preview-builder.yml` and `generate-index.js` files
+- Automatically update any branches that don't match the main branch versions
 - Skip branches that are already up-to-date
 - Provide a summary of all actions taken
 
@@ -48,11 +48,14 @@ git checkout <branch-name>
 # 2. Copy the preview-builder.yml from main
 git show main:.github/workflows/preview-builder.yml > .github/workflows/preview-builder.yml
 
-# 3. Commit the changes
-git add .github/workflows/preview-builder.yml
-git commit -m "Update preview-builder.yml to match main branch"
+# 3. Copy generate-index.js from main
+git show main:generate-index.js > generate-index.js
 
-# 4. Push the changes
+# 4. Commit the changes
+git add .github/workflows/preview-builder.yml generate-index.js
+git commit -m "Update preview-builder.yml and generate-index.js to match main branch"
+
+# 5. Push the changes
 git push origin <branch-name>
 ```
 
@@ -97,6 +100,7 @@ After updating, verify the changes with:
 
 ```bash
 git diff main:.github/workflows/preview-builder.yml .github/workflows/preview-builder.yml
+git diff main:generate-index.js generate-index.js
 ```
 
-This should show no differences if the update was successful.
+Both should show no differences if the update was successful.
