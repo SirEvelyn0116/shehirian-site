@@ -38,7 +38,7 @@ body, html {
   font-size: 48px;
   font-family: 'Elgar', serif;
   background-image: url('assets/img/bulgur-wheat-pile.png');
-  background-size: 150% 400vh; /* 4 sections stacked vertically;
+  background-size: 150% 500vh; /* 5 sections stacked vertically */
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
   color: black;
@@ -55,6 +55,9 @@ body, html {
 }
 .slice-4 {
   background-position: center 300vh;
+}
+.slice-5 {
+  background-position: center 400vh;
 }
 /* Dot Navigation */
 .dot-nav {
@@ -81,6 +84,58 @@ body, html {
   background-color: black;
 }
 
+/* Recipe Section Styles */
+.recipe-section {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px;
+  text-align: center;
+}
+
+.recipe-section h2 {
+  font-family: 'Elgar', serif;
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+.recipe-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  font-family: 'PP Neue Montreal', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.recipe-card h3 {
+  font-family: 'Elgar', serif;
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.recipe-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
 /* Responsive tweaks */
 @media (max-width: 768px) {
   .dot-nav {
@@ -96,6 +151,27 @@ body, html {
   .section {
     font-size: 32px;
     padding: 20px;
+  }
+  
+  .recipe-section {
+    padding: 20px;
+  }
+  
+  .recipe-section h2 {
+    font-size: 32px;
+  }
+  
+  .recipe-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .recipe-card {
+    padding: 20px;
+  }
+  
+  .recipe-card h3 {
+    font-size: 24px;
   }
 }
 
