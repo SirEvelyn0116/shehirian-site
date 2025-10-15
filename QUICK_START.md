@@ -1,7 +1,7 @@
-# Quick Start Guide: Update preview-builder.yml
+# Quick Start Guide: Update preview-builder.yml and generate-index.js
 
 ## 🎯 Goal
-Update the `preview-builder.yml` workflow file on 2 outdated branches to match the version on main.
+Update the `preview-builder.yml` workflow file and `generate-index.js` script on 2 outdated branches to match the versions on main.
 
 ## 📍 Branches Needing Updates
 - `feature-dot-navigation`
@@ -71,14 +71,15 @@ See `UPDATE_INSTRUCTIONS.md` for step-by-step manual instructions.
 
 ## ✨ What Gets Updated?
 
-The workflow file will be updated with:
+The workflow file and index generation script will be updated with:
 - ✅ Better preview preservation
 - ✅ Improved directory structure
 - ✅ Enhanced error handling
 - ✅ Clearer documentation
 - ✅ More robust deployment
+- ✅ Consistent generate-index.js across all branches
 
-No other files are modified. Only `.github/workflows/preview-builder.yml` on the 2 outdated branches.
+Only `.github/workflows/preview-builder.yml` and `generate-index.js` on the 2 outdated branches are modified.
 
 ---
 
