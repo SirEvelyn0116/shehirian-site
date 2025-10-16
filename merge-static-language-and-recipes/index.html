@@ -4,21 +4,10 @@
   <meta charset="UTF-8">
   <title>Shehirian Bulgur - Family Owned Since 1958</title>
   <link rel="stylesheet" href="mockup-4.css" />
-  <link rel="stylesheet" href="./assets/css/recipes-layout.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/elgar" rel="stylesheet">
 </head>
 <body>
-  <!-- Dot Navigation -->
-  <nav class="dot-nav">
-    <a href="#home" class="dot active" data-section="home" title="Home"><span class="label" data-i18n="nav_home">Home</span></a>
-    <a href="#about-us" class="dot" data-section="about-us" title="About Us"><span class="label" data-i18n="nav_about">About</span></a>
-    <a href="#products-carousel" class="dot" data-section="products-carousel" title="Our Products"><span class="label" data-i18n="nav_products">Products</span></a>
-    <a href="#recipes" class="dot" data-section="recipes" title="Recipes"><span class="label" data-i18n="nav_recipes">Recipes</span></a>
-    <a href="#contact" class="dot" data-section="contact" title="Contact Us"><span class="label" data-i18n="nav_contact">Contact us</span></a>
-  </nav>
-
   <div class="background">
     <!-- Language Switcher styled as nav bar -->
     <div id="language-switcher" class="lang-switcher-nav">
@@ -26,33 +15,25 @@
       <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
       <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
     </div>
-
-    <!-- Home Section -->
-    <section id="home" class="section">
-      <div class="home">
-        <div class="title" data-i18n="company">shehirian bulgor inc.</div>
-        <div class="mid-spacer"></div>
-        <div class="nav">
-          <h2 data-i18n="nav_home">Home</h2>
-          <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
-          <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
-          <h2><a href="#recipes" data-i18n="nav_recipes">Recipes</a></h2>
-          <h2><a href="#contact" data-i18n="nav_contact">Contact us</a></h2>
-        </div>
+    <div class="home">
+      <div class="title" data-i18n="company">shehirian bulgor inc.</div>
+      <div class="mid-spacer"></div>
+      <div class="nav">
+        <h2 data-i18n="nav_home">Home</h2>
+        <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
+        <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
+        <h2><a href="#recipes" data-i18n="nav_recipes">Recipes</a></h2>
+        <h2><a href="#contact" data-i18n="nav_contact">Contact us</a></h2>
       </div>
-    </section>
-
+    </div>
     <!-- Spacer to offset fixed nav -->
     <div class="spacer"></div>
-
     <!-- About US -->
     <section id="about-us" class="page-section">
       <h2 data-i18n="about_title">About US</h2>
       <p data-i18n="about_line1">Family owned and operated since 1958</p>
       <p data-i18n="about_line2">Scroll down to explore our products</p>
     </section>
-
-    <!-- Products Section -->
     <section id="products-carousel" class="page-section">
       <h2 data-i18n="products_title">Our Products</h2>
       <div class="carousel">
@@ -94,8 +75,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Recipes Section with Dot Nav Integration -->
+    <!-- RECIPE SECTION 4 (Added) -->
     <section id="recipes" class="section-recipes">
       <h2 data-i18n="recipes_title">Featured Recipes</h2>
       <div class="recipe-grid">
@@ -124,8 +104,8 @@
         </div>
       </div>
     </section>
+    <!-- END RECIPE SECTION -->
 
-    <!-- Contact Section -->
     <section id="contact" class="contact-section">
       <h2 data-i18n="contact_title">Contact Us</h2>
       <div class="contact-container">
@@ -154,62 +134,6 @@
       </div>
     </section>
   </div>
-
-  <!-- JSON-LD for Recipes -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Recipe",
-    "name": "Bulgur Wheat Salad",
-    "image": "https://yourdomain.com/images/bulgur-salad.jpg",
-    "author": { "@type": "Person", "name": "Laurence Evelyn" },
-    "description": "A refreshing Mediterranean salad with bulgur wheat, fresh herbs, and lemon dressing.",
-    "prepTime": "PT15M",
-    "cookTime": "PT10M",
-    "totalTime": "PT25M",
-    "recipeYield": "4 servings",
-    "recipeIngredient": [
-      "1 cup bulgur wheat",
-      "1/2 cup chopped parsley",
-      "1/4 cup chopped mint",
-      "1/2 cup diced cucumber",
-      "2 tbsp olive oil",
-      "1 tbsp lemon juice"
-    ],
-    "recipeInstructions": [
-      { "@type": "HowToStep", "text": "Soak bulgur in boiling water for 10 minutes." },
-      { "@type": "HowToStep", "text": "Mix with herbs, cucumber, and dressing." }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Recipe",
-    "name": "Spiced Lentil Soup",
-    "image": "https://yourdomain.com/images/lentil-soup.jpg",
-    "author": { "@type": "Person", "name": "Laurence Evelyn" },
-    "description": "A warm, spiced soup with red lentils and cumin.",
-    "prepTime": "PT10M",
-    "cookTime": "PT30M",
-    "totalTime": "PT40M",
-    "recipeYield": "4 servings",
-    "recipeIngredient": [
-      "1 cup red lentils",
-      "1 onion",
-      "2 carrots",
-      "1 tsp cumin",
-      "1 tbsp olive oil"
-    ],
-    "recipeInstructions": [
-      { "@type": "HowToStep", "text": "Sauté onion and carrots with cumin." },
-      { "@type": "HowToStep", "text": "Add lentils and simmer until soft." }
-    ]
-  }
-  </script>
-
-  <!-- Translations and Language Switcher Script -->
   <script>
     const translations = {
       en: {
@@ -364,8 +288,5 @@
     }
     window.onload = function() { setLanguage('en'); }
   </script>
-
-  <!-- Scroll Navigation for Dot Nav -->
-  <script src="scroll-nav.js"></script>
 </body>
 </html>
