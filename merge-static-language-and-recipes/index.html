@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shehirian Bulgur - Family Owned Since 1958</title>
+  <link rel="stylesheet" href="mockup-4.css" />
+  <link rel="stylesheet" href="./assets/css/recipes-layout.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/elgar" rel="stylesheet">
+</head>
+<body>
+  <!-- Dot Navigation -->
+  <nav class="dot-nav">
+    <a href="#home" class="dot active" data-section="home" title="Home"><span class="label" data-i18n="nav_home">Home</span></a>
+    <a href="#about-us" class="dot" data-section="about-us" title="About Us"><span class="label" data-i18n="nav_about">About</span></a>
+    <a href="#products-carousel" class="dot" data-section="products-carousel" title="Our Products"><span class="label" data-i18n="nav_products">Products</span></a>
+    <a href="#recipes" class="dot" data-section="recipes" title="Recipes"><span class="label" data-i18n="nav_recipes">Recipes</span></a>
+    <a href="#contact" class="dot" data-section="contact" title="Contact Us"><span class="label" data-i18n="nav_contact">Contact us</span></a>
+  </nav>
+
+  <div class="background">
+    <!-- Language Switcher styled as nav bar -->
+    <div id="language-switcher" class="lang-switcher-nav">
+      <button onclick="setLanguage('en')" id="lang-en" aria-label="English" title="English">EN</button>
+      <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
+      <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+      <div class="home">
+        <div class="title" data-i18n="company">shehirian bulgor inc.</div>
+        <div class="mid-spacer"></div>
+        <div class="nav">
+          <h2 data-i18n="nav_home">Home</h2>
+          <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
+          <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
+          <h2><a href="#recipes" data-i18n="nav_recipes">Recipes</a></h2>
+          <h2><a href="#contact" data-i18n="nav_contact">Contact us</a></h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacer to offset fixed nav -->
+    <div class="spacer"></div>
+
+    <!-- About US -->
+    <section id="about-us" class="page-section">
+      <h2 data-i18n="about_title">About US</h2>
+      <p data-i18n="about_line1">Family owned and operated since 1958</p>
+      <p data-i18n="about_line2">Scroll down to explore our products</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products-carousel" class="page-section">
+      <h2 data-i18n="products_title">Our Products</h2>
+      <div class="carousel">
+        <div class="swath icon" data-tooltip="fine soft wheat">
+          <div class="image-container">
+            <img src='img/fine-bulgor-soft-wheat.jpg' alt='fine soft wheat bulgor'>
+          </div>
+          <span data-i18n="product_soft_fine">soft wheat fine</span>
+        </div>
+        <div class="swath icon" data-tooltip="medium soft wheat">
+          <div class="image-container">
+            <img src="img/medium-bulgor-soft-wheat.jpg" alt="medium soft wheat bulgor">
+          </div>
+          <span data-i18n="product_soft_medium">soft wheat medium</span>
+        </div>
+        <div class="swath icon" data-tooltip="coarse soft wheat">
+          <div class="image-container">
+            <img src="img/coarse-bulgor-soft-wheat.jpg" alt="coarse soft wheat bulgor">
+          </div>
+          <span data-i18n="product_soft_coarse">soft wheat coarse</span>
+        </div>
+        <div class="swath icon" data-tooltip="extra coarse soft wheat">
+          <div class="image-container">
+            <img src="img/extra-coarse-bulgor-soft-wheat.jpg" alt="extra coarse soft wheat bulgor">
+          </div>
+          <span data-i18n="product_soft_xcoarse">soft wheat extra coarse</span>
+        </div>
+        <div class="swath carousel-bg bg-fine-red" data-tooltip="fine red wheat">
+          <!-- img src="img/fine-bulgor-red-wheat.jpg" -->
+          <span data-i18n="product_red_fine">red wheat fine</span>
+        </div>
+        <div class="swath carousel-bg bg-medium-red" data-tooltip="medium red wheat">
+          <!-- img src="img/medium-bulgor-red-wheat.jpg" alt="medium red wheat bulgor" -->
+          <span data-i18n="product_red_medium">red wheat medium</span>
+        </div>
+        <div class="swath carousel-bg bg-coarse-red" data-tooltip="coarse red wheat">
+          <!-- img src="img/coarse-bulgor-red-wheat.jpg" alt="coarse red wheat bulgor" -->
+          <span data-i18n="product_red_coarse">red wheat coarse</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recipes Section with Dot Nav Integration -->
+    <section id="recipes" class="section-recipes">
+      <h2 data-i18n="recipes_title">Featured Recipes</h2>
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <h3 data-i18n="recipe1_title">Bulgur Wheat Salad</h3>
+          <p data-i18n="recipe1_desc">Fresh herbs, lemon dressing, and hearty bulgur.</p>
+          <ul>
+            <li data-i18n="recipe1_ing1">1 cup bulgur wheat</li>
+            <li data-i18n="recipe1_ing2">1/2 cup chopped parsley</li>
+            <li data-i18n="recipe1_ing3">1/4 cup chopped mint</li>
+            <li data-i18n="recipe1_ing4">1/2 cup diced cucumber</li>
+            <li data-i18n="recipe1_ing5">2 tbsp olive oil</li>
+            <li data-i18n="recipe1_ing6">1 tbsp lemon juice</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3 data-i18n="recipe2_title">Spiced Lentil Soup</h3>
+          <p data-i18n="recipe2_desc">Comforting, protein-rich, and perfect for fall.</p>
+          <ul>
+            <li data-i18n="recipe2_ing1">1 cup red lentils</li>
+            <li data-i18n="recipe2_ing2">1 onion</li>
+            <li data-i18n="recipe2_ing3">2 carrots</li>
+            <li data-i18n="recipe2_ing4">1 tsp cumin</li>
+            <li data-i18n="recipe2_ing5">1 tbsp olive oil</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2 data-i18n="contact_title">Contact Us</h2>
+      <div class="contact-container">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3 data-i18n="contact_get_in_touch">Get in Touch</h3>
+          <p><strong data-i18n="contact_address_label">Address:</strong> 375 Midwest Rd., Toronto, ON</p>
+          <p><strong data-i18n="contact_phone_label">Phone:</strong> (416) 757-9495</p>
+          <p><strong data-i18n="contact_fax_label">Fax:</strong> (416) 752-9248</p>
+          <p><strong data-i18n="contact_email_label">Email:</strong> info@shehirian.com</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+          <label for="name" data-i18n="label_name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email" data-i18n="label_email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message" data-i18n="label_message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" data-i18n="button_send">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- JSON-LD for Recipes -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Bulgur Wheat Salad",
+    "image": "https://yourdomain.com/images/bulgur-salad.jpg",
+    "author": { "@type": "Person", "name": "Laurence Evelyn" },
+    "description": "A refreshing Mediterranean salad with bulgur wheat, fresh herbs, and lemon dressing.",
+    "prepTime": "PT15M",
+    "cookTime": "PT10M",
+    "totalTime": "PT25M",
+    "recipeYield": "4 servings",
+    "recipeIngredient": [
+      "1 cup bulgur wheat",
+      "1/2 cup chopped parsley",
+      "1/4 cup chopped mint",
+      "1/2 cup diced cucumber",
+      "2 tbsp olive oil",
+      "1 tbsp lemon juice"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Soak bulgur in boiling water for 10 minutes." },
+      { "@type": "HowToStep", "text": "Mix with herbs, cucumber, and dressing." }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Spiced Lentil Soup",
+    "image": "https://yourdomain.com/images/lentil-soup.jpg",
+    "author": { "@type": "Person", "name": "Laurence Evelyn" },
+    "description": "A warm, spiced soup with red lentils and cumin.",
+    "prepTime": "PT10M",
+    "cookTime": "PT30M",
+    "totalTime": "PT40M",
+    "recipeYield": "4 servings",
+    "recipeIngredient": [
+      "1 cup red lentils",
+      "1 onion",
+      "2 carrots",
+      "1 tsp cumin",
+      "1 tbsp olive oil"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Sauté onion and carrots with cumin." },
+      { "@type": "HowToStep", "text": "Add lentils and simmer until soft." }
+    ]
+  }
+  </script>
+
+  <!-- Translations and Language Switcher Script -->
+  <script>
+    const translations = {
+      en: {
+        company: "shehirian bulgor inc.",
+        nav_home: "Home",
+        nav_about: "About",
+        nav_products: "Products",
+        nav_recipes: "Recipes",
+        nav_contact: "Contact us",
+        about_title: "About US",
+        about_line1: "Family owned and operated since 1958",
+        about_line2: "Scroll down to explore our products",
+        products_title: "Our Products",
+        product_soft_fine: "soft wheat fine",
+        product_soft_medium: "soft wheat medium",
+        product_soft_coarse: "soft wheat coarse",
+        product_soft_xcoarse: "soft wheat extra coarse",
+        product_red_fine: "red wheat fine",
+        product_red_medium: "red wheat medium",
+        product_red_coarse: "red wheat coarse",
+        recipes_title: "Featured Recipes",
+        recipe1_title: "Bulgur Wheat Salad",
+        recipe1_desc: "Fresh herbs, lemon dressing, and hearty bulgur.",
+        recipe1_ing1: "1 cup bulgur wheat",
+        recipe1_ing2: "1/2 cup chopped parsley",
+        recipe1_ing3: "1/4 cup chopped mint",
+        recipe1_ing4: "1/2 cup diced cucumber",
+        recipe1_ing5: "2 tbsp olive oil",
+        recipe1_ing6: "1 tbsp lemon juice",
+        recipe2_title: "Spiced Lentil Soup",
+        recipe2_desc: "Comforting, protein-rich, and perfect for fall.",
+        recipe2_ing1: "1 cup red lentils",
+        recipe2_ing2: "1 onion",
+        recipe2_ing3: "2 carrots",
+        recipe2_ing4: "1 tsp cumin",
+        recipe2_ing5: "1 tbsp olive oil",
+        contact_title: "Contact Us",
+        contact_get_in_touch: "Get in Touch",
+        contact_address_label: "Address:",
+        contact_phone_label: "Phone:",
+        contact_fax_label: "Fax:",
+        contact_email_label: "Email:",
+        label_name: "Name",
+        label_email: "Email",
+        label_message: "Message",
+        button_send: "Send Message"
+      },
+      fr: {
+        company: "shehirian bulgor inc.",
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_products: "Produits",
+        nav_recipes: "Recettes",
+        nav_contact: "Contactez-nous",
+        about_title: "À propos de nous",
+        about_line1: "Entreprise familiale depuis 1958",
+        about_line2: "Faites défiler pour explorer nos produits",
+        products_title: "Nos Produits",
+        product_soft_fine: "blé tendre fin",
+        product_soft_medium: "blé tendre moyen",
+        product_soft_coarse: "blé tendre grossier",
+        product_soft_xcoarse: "blé tendre extra grossier",
+        product_red_fine: "blé rouge fin",
+        product_red_medium: "blé rouge moyen",
+        product_red_coarse: "blé rouge grossier",
+        recipes_title: "Recettes en vedette",
+        recipe1_title: "Salade de blé bulgur",
+        recipe1_desc: "Herbes fraîches, vinaigrette au citron et bulgur copieux.",
+        recipe1_ing1: "1 tasse de blé bulgur",
+        recipe1_ing2: "1/2 tasse de persil haché",
+        recipe1_ing3: "1/4 tasse de menthe hachée",
+        recipe1_ing4: "1/2 tasse de concombre en dés",
+        recipe1_ing5: "2 c. à soupe d'huile d'olive",
+        recipe1_ing6: "1 c. à soupe de jus de citron",
+        recipe2_title: "Soupe de lentilles épicée",
+        recipe2_desc: "Réconfortante, riche en protéines et parfaite pour l'automne.",
+        recipe2_ing1: "1 tasse de lentilles rouges",
+        recipe2_ing2: "1 oignon",
+        recipe2_ing3: "2 carottes",
+        recipe2_ing4: "1 c. à thé de cumin",
+        recipe2_ing5: "1 c. à soupe d'huile d'olive",
+        contact_title: "Contactez-nous",
+        contact_get_in_touch: "Entrer en contact",
+        contact_address_label: "Adresse :",
+        contact_phone_label: "Téléphone :",
+        contact_fax_label: "Fax :",
+        contact_email_label: "Email :",
+        label_name: "Nom",
+        label_email: "Email",
+        label_message: "Message",
+        button_send: "Envoyer le message"
+      },
+      ar: {
+        company: "شهيريان بلغور ش.م.",
+        nav_home: "الرئيسية",
+        nav_about: "حول",
+        nav_products: "المنتجات",
+        nav_recipes: "وصفات",
+        nav_contact: "اتصل بنا",
+        about_title: "معلومات عنا",
+        about_line1: "تأسست وتدار عائلياً منذ 1958",
+        about_line2: "قم بالتمرير للأسفل لاستكشاف منتجاتنا",
+        products_title: "منتجاتنا",
+        product_soft_fine: "برغل قمح ناعم",
+        product_soft_medium: "برغل قمح متوسط",
+        product_soft_coarse: "برغل قمح خشن",
+        product_soft_xcoarse: "برغل قمح خشن جداً",
+        product_red_fine: "برغل أحمر ناعم",
+        product_red_medium: "برغل أحمر متوسط",
+        product_red_coarse: "برغل أحمر خشن",
+        recipes_title: "وصفات مميزة",
+        recipe1_title: "سلطة البرغل",
+        recipe1_desc: "أعشاب طازجة وصلصة الليمون وبرغل شهي.",
+        recipe1_ing1: "1 كوب برغل",
+        recipe1_ing2: "1/2 كوب بقدونس مفروم",
+        recipe1_ing3: "1/4 كوب نعناع مفروم",
+        recipe1_ing4: "1/2 كوب خيار مقطع",
+        recipe1_ing5: "2 ملعقة كبيرة زيت زيتون",
+        recipe1_ing6: "1 ملعقة كبيرة عصير ليمون",
+        recipe2_title: "حساء العدس بالبهارات",
+        recipe2_desc: "مريح وغني بالبروتين ومثالي للخريف.",
+        recipe2_ing1: "1 كوب عدس أحمر",
+        recipe2_ing2: "1 بصلة",
+        recipe2_ing3: "2 جزر",
+        recipe2_ing4: "1 ملعقة صغيرة كمون",
+        recipe2_ing5: "1 ملعقة كبيرة زيت زيتون",
+        contact_title: "اتصل بنا",
+        contact_get_in_touch: "تواصل معنا",
+        contact_address_label: "العنوان:",
+        contact_phone_label: "الهاتف:",
+        contact_fax_label: "فاكس:",
+        contact_email_label: "البريد الإلكتروني:",
+        label_name: "الاسم",
+        label_email: "البريد الإلكتروني",
+        label_message: "رسالة",
+        button_send: "إرسال الرسالة"
+      }
+    };
+
+    // Language switcher with highlight
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+      // Highlight current language
+      document.getElementById('lang-en').classList.remove('active-lang');
+      document.getElementById('lang-fr').classList.remove('active-lang');
+      document.getElementById('lang-ar').classList.remove('active-lang');
+      document.getElementById('lang-' + lang).classList.add('active-lang');
+    }
+    window.onload = function() { setLanguage('en'); }
+  </script>
+
+  <!-- Scroll Navigation for Dot Nav -->
+  <script src="scroll-nav.js"></script>
+</body>
+</html>

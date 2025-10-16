@@ -1,0 +1,158 @@
+name: Sync Preview Builder Workflow
+
+# This workflow synchronizes the preview-builder.yml and generate-index.js files across all branches
+# Run manually to update outdated branches to match the main branch version
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (show changes without committing)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+jobs:
+  sync-workflow:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for all branches
+          
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+      - name: Fetch all branches
+        run: |
+          git fetch --all
+          
+      - name: Sync preview-builder.yml and generate-index.js to branches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          # List of branches to update (excluding main)
+          BRANCHES_TO_CHECK=(
+            "dot-navigation-mock-up"
+            "feature-dot-navigation"
+            "feature-language-switcher-failed"
+            "feature-recipes-layout"
+            "feature-static-language-switcher"
+            "feature-test-preview"
+            "first-mockup"
+            "mock-up"
+          )
+          
+          UPDATED_COUNT=0
+          SKIPPED_COUNT=0
+          
+          echo "=== Starting sync process ==="
+          echo "Dry run mode: $DRY_RUN"
+          echo ""
+          
+          for branch in "${BRANCHES_TO_CHECK[@]}"; do
+            echo "Checking branch: $branch"
+            
+            # Check if branch exists
+            if ! git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+              echo "  ✗ Branch does not exist, skipping"
+              SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+              continue
+            fi
+            
+            # Check if preview-builder.yml exists on branch
+            if ! git show "origin/$branch:.github/workflows/preview-builder.yml" &>/dev/null; then
+              echo "  ✗ preview-builder.yml not found on branch, skipping"
+              SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+              continue
+            fi
+            
+            # Check if generate-index.js exists on branch
+            if ! git show "origin/$branch:generate-index.js" &>/dev/null; then
+              echo "  ✗ generate-index.js not found on branch, skipping"
+              SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+              continue
+            fi
+            
+            # Compare preview-builder.yml
+            WORKFLOW_MATCHES=false
+            if diff <(git show main:.github/workflows/preview-builder.yml) <(git show "origin/$branch:.github/workflows/preview-builder.yml") &>/dev/null; then
+              WORKFLOW_MATCHES=true
+            fi
+            
+            # Compare generate-index.js
+            GENERATE_INDEX_MATCHES=false
+            if diff <(git show main:generate-index.js) <(git show "origin/$branch:generate-index.js") &>/dev/null; then
+              GENERATE_INDEX_MATCHES=true
+            fi
+            
+            # If both files match, skip
+            if [ "$WORKFLOW_MATCHES" = true ] && [ "$GENERATE_INDEX_MATCHES" = true ]; then
+              echo "  ✓ Already up to date"
+              SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
+              continue
+            fi
+            
+            # Determine what needs updating
+            FILES_TO_UPDATE=()
+            if [ "$WORKFLOW_MATCHES" = false ]; then
+              FILES_TO_UPDATE+=("preview-builder.yml")
+            fi
+            if [ "$GENERATE_INDEX_MATCHES" = false ]; then
+              FILES_TO_UPDATE+=("generate-index.js")
+            fi
+            
+            echo "  → Needs update: ${FILES_TO_UPDATE[*]}"
+            
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "  [DRY RUN] Would update $branch"
+              UPDATED_COUNT=$((UPDATED_COUNT + 1))
+            else
+              # Checkout the branch
+              git checkout "origin/$branch" -b "$branch" 2>/dev/null || git checkout "$branch"
+              
+              # Copy the files from main
+              if [ "$WORKFLOW_MATCHES" = false ]; then
+                git show main:.github/workflows/preview-builder.yml > .github/workflows/preview-builder.yml
+                git add .github/workflows/preview-builder.yml
+              fi
+              
+              if [ "$GENERATE_INDEX_MATCHES" = false ]; then
+                git show main:generate-index.js > generate-index.js
+                git add generate-index.js
+              fi
+              
+              # Commit and push
+              git commit -m "chore: sync preview-builder.yml and generate-index.js with main branch" \
+                         -m "This automated commit updates preview-builder.yml and generate-index.js to match the version on main branch." \
+                         -m "Updated files: ${FILES_TO_UPDATE[*]}" \
+                         -m "Updated by: sync-preview-builder workflow"
+              
+              git push origin "$branch"
+              echo "  ✓ Successfully updated"
+              UPDATED_COUNT=$((UPDATED_COUNT + 1))
+              
+              # Return to main
+              git checkout main
+            fi
+            
+            echo ""
+          done
+          
+          echo "=== Sync complete ==="
+          echo "Updated: $UPDATED_COUNT branches"
+          echo "Skipped: $SKIPPED_COUNT branches"
+          
+          if [ "$DRY_RUN" = "true" ]; then
+            echo ""
+            echo "This was a dry run. Re-run with dry_run=false to apply changes."
+          fi
