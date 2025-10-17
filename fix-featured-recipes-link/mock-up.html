@@ -28,10 +28,11 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="all-recipes.html">All Recipes</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -75,16 +76,25 @@
   <section class="recipes" id="recipes">
     <h2>Featured Recipes</h2>
     <div class="recipe-grid">
-      <div class="recipe-card">
-        <img src="tabbouleh.jpg" alt="Tabbouleh">
+      <a href="recipes-pages/classic-tabbouleh.html" class="recipe-card">
         <h3>Classic Tabbouleh</h3>
         <p>A refreshing salad with parsley, mint, tomatoes, and fine bulgur.</p>
-      </div>
-      <div class="recipe-card">
-        <img src="bulgur-pilaf.jpg" alt="Bulgur Pilaf">
+      </a>
+      <a href="recipes-pages/hearty-bulgur-pilaf.html" class="recipe-card">
         <h3>Hearty Bulgur Pilaf</h3>
         <p>Coarse bulgur simmered with vegetables and spices for a comforting meal.</p>
-      </div>
+      </a>
+      <a href="recipes-pages/bulgur-wheat-salad.html" class="recipe-card">
+        <h3>Bulgur Wheat Salad</h3>
+        <p>Fresh herbs, lemon dressing, and hearty bulgur.</p>
+      </a>
+      <a href="recipes-pages/spiced-lentil-soup.html" class="recipe-card">
+        <h3>Spiced Lentil Soup</h3>
+        <p>Comforting, protein-rich, and perfect for fall.</p>
+      </a>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="all-recipes.html" class="cta-button">View All Recipes</a>
     </div>
   </section>
 
