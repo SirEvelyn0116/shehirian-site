@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="95" fill="#6B8E23" stroke="#4A5F1A" stroke-width="3"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#F5F5DC" stroke-width="2"/>
+  <text x="100" y="90" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#F5F5DC" text-anchor="middle">ORGANIC</text>
+  <text x="100" y="120" font-family="Arial, sans-serif" font-size="16" fill="#F5F5DC" text-anchor="middle">CERTIFIED</text>
+  <path d="M 100 40 L 105 50 L 100 55 L 95 50 Z" fill="#F5F5DC"/>
+  <path d="M 70 70 Q 75 65 80 70 Q 75 75 70 70 Z" fill="#F5F5DC"/>
+  <path d="M 130 70 Q 125 65 120 70 Q 125 75 130 70 Z" fill="#F5F5DC"/>
+</svg>
