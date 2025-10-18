@@ -55,7 +55,7 @@ body, html {
 .lang-switcher-nav {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 340px;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -315,6 +315,8 @@ opacity: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-decoration: none;
+  cursor: pointer;
 }
 .recipe-card:hover {
   transform: translateY(-4px) scale(1.02);
