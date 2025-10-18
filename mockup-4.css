@@ -53,12 +53,11 @@ body, html {
     width: 33%;
 }
 .lang-switcher-nav {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   gap: 10px;
+  margin-bottom: 20px;
   z-index: 100;
 }
 
@@ -315,6 +314,8 @@ opacity: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-decoration: none;
+  cursor: pointer;
 }
 .recipe-card:hover {
   transform: translateY(-4px) scale(1.02);
@@ -331,6 +332,24 @@ opacity: 1;
 .recipe-card p {
   font-size: 1rem;
   margin: 0 0 8px 0;
+}
+.view-all-recipes-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #5a6345;
+  color: #f8f6f2;
+  text-decoration: none;
+  border-radius: 30px;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.view-all-recipes-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background-color: #a36b1b;
 }
 @media (max-width: 600px) {
   .section-recipes {

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Recipes - Shehirian Bulgur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'PP Neue Montreal', 'Poppins', system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f6f2;
+    }
+
+    .back-nav {
+      background: #5a6345;
+      padding: 1rem 2rem;
+    }
+
+    .back-nav a {
+      color: #f8f6f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover {
+      color: #a36b1b;
+    }
+
+    .all-recipes-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #55422c;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .recipe-card {
+      background-color: #5a6345;
+      color: #f8f6f2;
+      padding: 24px 20px 20px 20px;
+      border-radius: 30px;
+      font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+
+    .recipe-card h3 {
+      font-size: 1.35rem;
+      margin: 0 0 8px 0;
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      color: #a36b1b;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .recipe-card p {
+      font-size: 1rem;
+      margin: 0 0 8px 0;
+      color: #2a241b;
+    }
+
+    .recipe-meta {
+      font-size: 0.9rem;
+      color: #2a241b;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .all-recipes-container {
+        padding: 0 1rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .recipe-grid {
+        gap: 14px;
+      }
+      
+      .recipe-card {
+        padding: 16px 10px 12px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="index.html#recipes">← Back to Home</a>
+  </nav>
+
+  <div class="all-recipes-container">
+    <h1>All Recipes</h1>
+    
+    <div class="recipe-grid">
+      <a href="bulgur-wheat-salad.html" class="recipe-card">
+        <h3>Bulgur Wheat Salad</h3>
+        <p>Fresh herbs, lemon dressing, and hearty bulgur.</p>
+        <div class="recipe-meta">
+          <strong>Servings:</strong> 4 | <strong>Time:</strong> 25 min
+        </div>
+      </a>
+
+      <a href="spiced-lentil-soup.html" class="recipe-card">
+        <h3>Spiced Lentil Soup</h3>
+        <p>Comforting, protein-rich, and perfect for fall.</p>
+        <div class="recipe-meta">
+          <strong>Servings:</strong> 4 | <strong>Time:</strong> 40 min
+        </div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

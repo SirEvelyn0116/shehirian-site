@@ -9,16 +9,16 @@
 </head>
 <body>
   <div class="background">
-    <!-- Language Switcher styled as nav bar -->
-    <div id="language-switcher" class="lang-switcher-nav">
-      <button onclick="setLanguage('en')" id="lang-en" aria-label="English" title="English">EN</button>
-      <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
-      <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
-    </div>
     <div class="home">
       <div class="title" data-i18n="company">shehirian bulgor inc.</div>
       <div class="mid-spacer"></div>
       <div class="nav">
+        <!-- Language Switcher styled as nav bar -->
+        <div id="language-switcher" class="lang-switcher-nav">
+          <button onclick="setLanguage('en')" id="lang-en" aria-label="English" title="English">EN</button>
+          <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
+          <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
+        </div>
         <h2 data-i18n="nav_home">Home</h2>
         <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
         <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
@@ -79,7 +79,7 @@
     <section id="recipes" class="section-recipes">
       <h2 data-i18n="recipes_title">Featured Recipes</h2>
       <div class="recipe-grid">
-        <div class="recipe-card">
+        <a href="bulgur-wheat-salad.html" class="recipe-card">
           <h3 data-i18n="recipe1_title">Bulgur Wheat Salad</h3>
           <p data-i18n="recipe1_desc">Fresh herbs, lemon dressing, and hearty bulgur.</p>
           <ul>
@@ -90,8 +90,8 @@
             <li data-i18n="recipe1_ing5">2 tbsp olive oil</li>
             <li data-i18n="recipe1_ing6">1 tbsp lemon juice</li>
           </ul>
-        </div>
-        <div class="recipe-card">
+        </a>
+        <a href="spiced-lentil-soup.html" class="recipe-card">
           <h3 data-i18n="recipe2_title">Spiced Lentil Soup</h3>
           <p data-i18n="recipe2_desc">Comforting, protein-rich, and perfect for fall.</p>
           <ul>
@@ -101,7 +101,10 @@
             <li data-i18n="recipe2_ing4">1 tsp cumin</li>
             <li data-i18n="recipe2_ing5">1 tbsp olive oil</li>
           </ul>
-        </div>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="all-recipes.html" class="view-all-recipes-btn" data-i18n="view_all_recipes">View All Recipes →</a>
       </div>
     </section>
     <!-- END RECIPE SECTION -->
@@ -170,6 +173,7 @@
         recipe2_ing3: "2 carrots",
         recipe2_ing4: "1 tsp cumin",
         recipe2_ing5: "1 tbsp olive oil",
+        view_all_recipes: "View All Recipes →",
         contact_title: "Contact Us",
         contact_get_in_touch: "Get in Touch",
         contact_address_label: "Address:",
@@ -215,6 +219,7 @@
         recipe2_ing3: "2 carottes",
         recipe2_ing4: "1 c. à thé de cumin",
         recipe2_ing5: "1 c. à soupe d'huile d'olive",
+        view_all_recipes: "Voir toutes les recettes →",
         contact_title: "Contactez-nous",
         contact_get_in_touch: "Entrer en contact",
         contact_address_label: "Adresse :",
@@ -260,6 +265,7 @@
         recipe2_ing3: "2 جزر",
         recipe2_ing4: "1 ملعقة صغيرة كمون",
         recipe2_ing5: "1 ملعقة كبيرة زيت زيتون",
+        view_all_recipes: "عرض جميع الوصفات ←",
         contact_title: "اتصل بنا",
         contact_get_in_touch: "تواصل معنا",
         contact_address_label: "العنوان:",
