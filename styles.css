@@ -134,10 +134,10 @@
         overflow: hidden;
     }
     .image-container img {
-        width: 500%;
+        width: 250%;
         height: auto;
         object-fit: cover;
-        object-position: 10% 30%;
+        object-position: center center;
     }
     .swath {
         margin-bottom: 10px;
