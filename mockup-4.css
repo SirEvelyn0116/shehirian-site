@@ -53,12 +53,11 @@ body, html {
     width: 33%;
 }
 .lang-switcher-nav {
-  position: absolute;
-  top: 20px;
-  right: 340px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   gap: 10px;
+  margin-bottom: 20px;
   z-index: 100;
 }
 
