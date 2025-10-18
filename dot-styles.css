@@ -43,46 +43,6 @@ body, html {
   background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
   color: black;
 }
-
-/* Section Content */
-.section-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-/* Certifications Container */
-.certifications {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Certification Logo Links */
-.cert-logo-link {
-  display: block;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-}
-
-.cert-logo-link:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.cert-logo-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 /* Each section shows a different vertical slice */
 .slice-1 {
   background-position: center 0vh;
@@ -136,20 +96,6 @@ body, html {
   .section {
     font-size: 32px;
     padding: 20px;
-  }
-
-  .section-content {
-    gap: 30px;
-  }
-
-  .certifications {
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  .cert-logo-link {
-    width: 50px;
-    height: 50px;
   }
 }
 

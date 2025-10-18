@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <circle cx="100" cy="100" r="95" fill="#FF8C00" stroke="#CC6600" stroke-width="3"/>
-  <circle cx="100" cy="100" r="80" fill="none" stroke="#FFFFFF" stroke-width="2"/>
-  <text x="100" y="85" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">NON-GMO</text>
-  <text x="100" y="110" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" text-anchor="middle">VERIFIED</text>
-  <circle cx="100" cy="135" r="12" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
-  <line x1="92" y1="135" x2="108" y2="135" stroke="#FFFFFF" stroke-width="2.5"/>
-  <rect x="97" y="127" width="6" height="16" fill="#FFFFFF" rx="1"/>
-</svg>

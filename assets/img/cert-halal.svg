@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <circle cx="100" cy="100" r="95" fill="#008751" stroke="#005A33" stroke-width="3"/>
-  <circle cx="100" cy="100" r="80" fill="none" stroke="#FFFFFF" stroke-width="2"/>
-  <text x="100" y="95" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle">HALAL</text>
-  <text x="100" y="120" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">CERTIFIED</text>
-  <path d="M 85 50 Q 100 40 115 50" fill="none" stroke="#FFFFFF" stroke-width="2"/>
-  <path d="M 85 55 Q 100 45 115 55" fill="none" stroke="#FFFFFF" stroke-width="2"/>
-  <circle cx="100" cy="140" r="4" fill="#FFFFFF"/>
-</svg>

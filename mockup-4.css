@@ -33,6 +33,7 @@ body, html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    min-height: 100vh;
 }
 .title {
   font-size: 10vh;
@@ -47,13 +48,13 @@ body, html {
     height: 100vh;
 }
 .page-section {
-    min-height: 50vh;
+    min-height: 100vh;
 }
 .mid-spacer {
     width: 33%;
 }
 .lang-switcher-nav {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   display: flex;
@@ -152,6 +153,25 @@ body, html {
     display: flex;
     flex-direction:column;
 }
+.swath.icon .image-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+.swath.icon .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.5s ease;
+  transform: scale(1.5);
+  transform-origin: center center;
+}
+.swath.icon:hover .image-container img, .swath.icon:focus-within .image-container img {
+  transform: scale(2);
+}
 .swath:hover {
   flex: 2;
   background-color: wheat;
@@ -163,10 +183,10 @@ body, html {
     overflow: hidden;
 }
 .image-container img {
-    width: 500%;
+    /* width: 500%; */
     height: auto;
     object-fit: cover;
-    object-position: 10% 30%;
+    object-position: 50% 40%;
 }
 .swath {
     margin-bottom: 10px;
@@ -344,3 +364,99 @@ opacity: 1;
     padding: 16px 10px 12px 10px;
   }
 }
+
+/* Certifications Section */
+.certifications-section {
+  background-color: #f5f5f0;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+}
+
+.certifications-section h2 {
+  font-size: 2.5rem;
+  color: #5a6345;
+  margin-bottom: 10px;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-weight: 600;
+}
+
+.certifications-intro {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.certifications-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge span {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a6345;
+}
+
+.cert-badge:hover img {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cert-badge:hover span {
+  color: #a36b1b;
+}
+
+@media (max-width: 600px) {
+  .certifications-section {
+    padding: 40px 15px;
+  }
+  
+  .certifications-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .certifications-intro {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .certifications-container {
+    gap: 20px;
+  }
+  
+  .cert-badge img {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .cert-badge span {
+    font-size: 0.85rem;
+  }
+}
+
+
