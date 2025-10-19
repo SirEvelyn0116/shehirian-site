@@ -368,7 +368,7 @@ opacity: 1;
 /* === PRODUCT CARDS (similar to recipe cards) === */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 20px 40px;
   width: 100%;
@@ -431,17 +431,48 @@ opacity: 1;
   color: #3a3a3a;
   line-height: 1.4;
 }
-@media (max-width: 600px) {
+/* Red wheat cards - smaller and centered in second row */
+.product-card-red {
+  grid-column: span 1;
+}
+.product-card-red:first-of-type {
+  grid-column: 2 / 3;
+}
+/* Make red wheat cards slightly smaller */
+.product-card-red .product-image-container {
+  height: 200px;
+}
+.product-card-red h3 {
+  font-size: 1.2rem;
+}
+.product-card-red .product-description {
+  font-size: 0.85rem;
+}
+@media (max-width: 900px) {
   .product-grid {
+    grid-template-columns: repeat(2, 1fr);
     padding: 20px 15px;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .product-card-red:first-of-type {
+    grid-column: auto;
+  }
+  .product-card-red .product-image-container {
+    height: 200px;
+  }
+}
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
   }
   .product-card .product-image-container {
     height: 200px;
   }
   .product-card .product-info {
     padding: 16px;
+  }
+  .product-card-red .product-image-container {
+    height: 180px;
   }
 }
 
