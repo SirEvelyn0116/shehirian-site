@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Soup</title>
+  <link rel="stylesheet" href="./assets/css/recipes-styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Royal Soup",
+    "author": { "@type": "Person", "name": "Laurence Evelyn" },
+    "recipeCategory": "Soup",
+    "recipeCuisine": "Middle Eastern",
+    "recipeYield": "6 servings",
+    "prepTime": "PT15M",
+    "cookTime": "PT30M",
+    "totalTime": "PT45M",
+    "recipeIngredient": [
+      "1/2 gallon chicken broth",
+      "1/2 lb. ground beef (not too lean)",
+      "1/4 cup raw rice",
+      "1/4 cup very finely chopped onion",
+      "1/4 cup parsley",
+      "1/4 cup lemon juice",
+      "1/4 cup finely chopped celery",
+      "1/4 tsp. salt",
+      "Slice of 2 lemons"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls." },
+      { "@type": "HowToStep", "text": "Add rice to the meat balls mixture." },
+      { "@type": "HowToStep", "text": "Add meat balls to hot chicken broth and simmer until cooked through." },
+      { "@type": "HowToStep", "text": "Add lemon juice and celery. Simmer for 10 minutes." },
+      { "@type": "HowToStep", "text": "Add salt and lemon slices. Simmer for 5 minutes." },
+      { "@type": "HowToStep", "text": "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed." },
+      { "@type": "HowToStep", "text": "Pour broth over meatballs and serve." }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav class="back-nav">
+    <div class="nav-links">
+      <a href="index.html">← Back to Home</a>
+      <a href="all-recipes.html">← All Recipes</a>
+    </div>
+    <!-- Language Switcher inside nav bar -->
+    <div id="language-switcher" class="lang-switcher-nav">
+      <button onclick="setLanguage('en')" id="lang-en" aria-label="English" title="English">EN</button>
+      <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
+      <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
+    </div>
+  </nav>
+  <main class="recipe">
+    <h1 data-i18n="recipe_title">Royal Soup</h1>
+    <p><strong data-i18n="servings_label">Servings:</strong> <span data-i18n="servings_value">6</span></p>
+
+    <section>
+      <h2 data-i18n="ingredients_title">Ingredients</h2>
+      <ul>
+        <li data-i18n="ingredient_1">1/2 gallon chicken broth</li>
+        <li data-i18n="ingredient_2">1/2 lb. ground beef (not too lean)</li>
+        <li data-i18n="ingredient_3">1/4 cup raw rice</li>
+        <li data-i18n="ingredient_4">1/4 cup very finely chopped onion</li>
+        <li data-i18n="ingredient_5">1/4 cup parsley</li>
+        <li data-i18n="ingredient_6">1/4 cup lemon juice</li>
+        <li data-i18n="ingredient_7">1/4 cup finely chopped celery</li>
+        <li data-i18n="ingredient_8">1/4 tsp. salt</li>
+        <li data-i18n="ingredient_9">Slice of 2 lemons</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-i18n="instructions_title">Instructions</h2>
+      <ol>
+        <li data-i18n="instruction_1">Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1" diameter balls.</li>
+        <li data-i18n="instruction_2">Add rice to the meat balls mixture.</li>
+        <li data-i18n="instruction_3">Add meat balls to hot chicken broth and simmer until cooked through.</li>
+        <li data-i18n="instruction_4">Add lemon juice and celery. Simmer for 10 minutes.</li>
+        <li data-i18n="instruction_5">Add salt and lemon slices. Simmer for 5 minutes.</li>
+        <li data-i18n="instruction_6">Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.</li>
+        <li data-i18n="instruction_7">Pour broth over meatballs and serve.</li>
+      </ol>
+    </section>
+  </main>
+  <script>
+    const translations = {
+      en: {
+        recipe_title: "Royal Soup",
+        servings_label: "Servings:",
+        servings_value: "6",
+        ingredients_title: "Ingredients",
+        ingredient_1: "1/2 gallon chicken broth",
+        ingredient_2: "1/2 lb. ground beef (not too lean)",
+        ingredient_3: "1/4 cup raw rice",
+        ingredient_4: "1/4 cup very finely chopped onion",
+        ingredient_5: "1/4 cup parsley",
+        ingredient_6: "1/4 cup lemon juice",
+        ingredient_7: "1/4 cup finely chopped celery",
+        ingredient_8: "1/4 tsp. salt",
+        ingredient_9: "Slice of 2 lemons",
+        instructions_title: "Instructions",
+        instruction_1: "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
+        instruction_2: "Add rice to the meat balls mixture.",
+        instruction_3: "Add meat balls to hot chicken broth and simmer until cooked through.",
+        instruction_4: "Add lemon juice and celery. Simmer for 10 minutes.",
+        instruction_5: "Add salt and lemon slices. Simmer for 5 minutes.",
+        instruction_6: "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
+        instruction_7: "Pour broth over meatballs and serve."
+      },
+      fr: {
+        recipe_title: "Soupe Royale",
+        servings_label: "Portions :",
+        servings_value: "6",
+        ingredients_title: "Ingrédients",
+        ingredient_1: "1/2 gallon de bouillon de poulet",
+        ingredient_2: "1/2 lb. de bœuf haché (pas trop maigre)",
+        ingredient_3: "1/4 tasse de riz cru",
+        ingredient_4: "1/4 tasse d'oignon très finement haché",
+        ingredient_5: "1/4 tasse de persil",
+        ingredient_6: "1/4 tasse de jus de citron",
+        ingredient_7: "1/4 tasse de céleri finement haché",
+        ingredient_8: "1/4 c. à thé de sel",
+        ingredient_9: "Tranches de 2 citrons",
+        instructions_title: "Instructions",
+        instruction_1: "Mélanger la viande crue, le blé bulgur, l'oignon, le persil et l'assaisonnement ensemble et façonner en boules de 1\" de diamètre.",
+        instruction_2: "Ajouter le riz au mélange de boulettes de viande.",
+        instruction_3: "Ajouter les boulettes de viande au bouillon de poulet chaud et laisser mijoter jusqu'à ce qu'elles soient bien cuites.",
+        instruction_4: "Ajouter le jus de citron et le céleri. Laisser mijoter pendant 10 minutes.",
+        instruction_5: "Ajouter le sel et les tranches de citron. Laisser mijoter pendant 5 minutes.",
+        instruction_6: "Ajuster l'acidité, la salinité ou l'épaisseur avec du sucre, de l'eau ou du riz au besoin.",
+        instruction_7: "Verser le bouillon sur les boulettes de viande et servir."
+      },
+      ar: {
+        recipe_title: "شوربة ملكية",
+        servings_label: "الحصص:",
+        servings_value: "6",
+        ingredients_title: "المكونات",
+        ingredient_1: "نصف جالون مرق دجاج",
+        ingredient_2: "نصف رطل لحم بقري مفروم (ليس قليل الدهن)",
+        ingredient_3: "ربع كوب أرز نيء",
+        ingredient_4: "ربع كوب بصل مفروم ناعماً جداً",
+        ingredient_5: "ربع كوب بقدونس",
+        ingredient_6: "ربع كوب عصير ليمون",
+        ingredient_7: "ربع كوب كرفس مفروم ناعماً",
+        ingredient_8: "ربع ملعقة صغيرة ملح",
+        ingredient_9: "شرائح من 2 ليمون",
+        instructions_title: "التعليمات",
+        instruction_1: "اخلط اللحم النيء، البرغل، البصل، البقدونس والتوابل معاً واشكلها على شكل كرات بقطر 1 بوصة.",
+        instruction_2: "أضف الأرز إلى خليط كرات اللحم.",
+        instruction_3: "أضف كرات اللحم إلى مرق الدجاج الساخن واتركها تنضج حتى تنضج تماماً.",
+        instruction_4: "أضف عصير الليمون والكرفس. اتركه ينضج لمدة 10 دقائق.",
+        instruction_5: "أضف الملح وشرائح الليمون. اتركه ينضج لمدة 5 دقائق.",
+        instruction_6: "اضبط الحموضة، الملوحة، أو السماكة بالسكر، الماء، أو الأرز حسب الحاجة.",
+        instruction_7: "اسكب المرق فوق كرات اللحم وقدمه."
+      }
+    };
+
+    // Language switcher with highlight
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+      // Highlight current language
+      document.getElementById('lang-en').classList.remove('active-lang');
+      document.getElementById('lang-fr').classList.remove('active-lang');
+      document.getElementById('lang-ar').classList.remove('active-lang');
+      document.getElementById('lang-' + lang).classList.add('active-lang');
+    }
+    window.onload = function() { setLanguage('en'); }
+  </script>
+</body>
+</html>

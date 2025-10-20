@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Companies - Golden Grains Co.</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f6f2;
+    }
+
+    .back-nav {
+      background: #5a6345;
+      padding: 1rem 2rem;
+    }
+
+    .back-nav a {
+      color: #f8f6f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover {
+      color: #a36b1b;
+    }
+
+    .companies-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #55422c;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      padding: 20px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .company-card {
+      background-color: #5a6345;
+      color: #f8f6f2;
+      padding: 40px 30px;
+      border-radius: 30px;
+      font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      min-height: 200px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .company-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+
+    .company-card h2 {
+      font-size: 2rem;
+      margin: 0 0 16px 0;
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      color: #a36b1b;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .company-card p {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #2a241b;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .companies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .company-card h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="index.html">← Back to Home</a>
+  </nav>
+
+  <div class="companies-container">
+    <h1>Our Companies</h1>
+    
+    <div class="companies-grid">
+      <a href="shirag-products.html" class="company-card">
+        <h2>Shirag Bulgor</h2>
+        <p>Premium bulgur wheat products for traditional and modern cuisine</p>
+      </a>
+
+      <a href="mr-falafel-products.html" class="company-card">
+        <h2>Mr. Falafel</h2>
+        <p>Quality ingredients for authentic Middle Eastern dishes</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
