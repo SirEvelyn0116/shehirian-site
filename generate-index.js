@@ -8,15 +8,6 @@ const indexPath = path.join(previewsDir, 'index.html');
 // Helper function to get last commit time for a branch directory
 function getLastCommitTime(branchPath) {
   try {
-    // First, try to read from .last-commit-time metadata file
-    const metadataFile = path.join(branchPath, '.last-commit-time');
-    if (fs.existsSync(metadataFile)) {
-      const timestamp = fs.readFileSync(metadataFile, 'utf8').trim();
-      if (timestamp && !isNaN(timestamp)) {
-        return new Date(parseInt(timestamp) * 1000);
-      }
-    }
-    
     // Try to get the last commit timestamp from the branch's git history
     const gitDir = path.join(branchPath, '.git');
     if (fs.existsSync(gitDir)) {
