@@ -1,0 +1,49 @@
+name: Branch Preview Builder
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout current branch (e.g., feature-preview-x)
+      - uses: actions/checkout@v3
+        with:
+          path: current
+
+      # Step 2: Checkout gh-pages branch to preserve existing previews
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      # Step 3: Merge current branch's static files into gh-pages/branch-name/
+      - name: Merge new preview into gh-pages folder
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]')
+          mkdir -p gh-pages/$BRANCH_NAME
+          rsync -av --exclude='.git' --exclude='gh-pages' current/ gh-pages/$BRANCH_NAME/
+          
+          # Store the last commit timestamp for this branch
+          cd current
+          COMMIT_TIMESTAMP=$(git log -1 --format=%ct)
+          echo "$COMMIT_TIMESTAMP" > ../gh-pages/$BRANCH_NAME/.last-commit-time
+
+      # Step 4: Generate index.html with links to all previews
+      - name: Copy generate-index.js to gh-pages root
+        run: cp current/generate-index.js gh-pages/generate-index.js
+      
+      - name: Generate index.html
+        run: |
+          cd gh-pages
+          node generate-index.js
+
+      # Step 5: Deploy updated gh-pages folder
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
