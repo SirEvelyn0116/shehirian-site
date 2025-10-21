@@ -28,6 +28,18 @@ This repository uses a GitHub Actions workflow to automatically create preview d
 - Each feature branch is automatically deployed to `https://<username>.github.io/<repo>/<branch-name>/`
 - An index page at `https://<username>.github.io/<repo>/` lists all available branch previews
 - The preview system is managed by `.github/workflows/preview-builder.yml` and `generate-index.js`
+- Each preview shows the actual last commit timestamp in EDT timezone for easy tracking
+
+### How Branch Timestamps Work
+
+The preview index displays when each branch was last updated:
+
+1. When a branch is pushed, the workflow extracts the last commit timestamp
+2. The timestamp is stored in a `.last-commit-time` file in that branch's directory on `gh-pages`
+3. The `generate-index.js` script reads these timestamps and displays them in EDT/EST timezone
+4. Each branch shows its actual commit time, not when the index was generated
+
+This allows you to quickly see which previews are fresh and which might be outdated.
 
 ### Maintaining the Preview System
 
