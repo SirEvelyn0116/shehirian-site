@@ -1,8 +1,32 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const previewsDir = __dirname;
 const indexPath = path.join(previewsDir, 'index.html');
+
+// Helper function to get last commit time for a branch directory
+function getLastCommitTime(branchPath) {
+  try {
+    // Try to get the last commit timestamp from the branch's git history
+    const gitDir = path.join(branchPath, '.git');
+    if (fs.existsSync(gitDir)) {
+      const timestamp = execSync(
+        'git log -1 --format=%ct',
+        { cwd: branchPath, encoding: 'utf8' }
+      ).trim();
+      if (timestamp) {
+        return new Date(parseInt(timestamp) * 1000);
+      }
+    }
+  } catch (err) {
+    // If git command fails, fall back to directory mtime
+  }
+  
+  // Fallback to directory modification time
+  const stat = fs.statSync(branchPath);
+  return stat.mtime;
+}
 
 // Get all directories, filter out deleted branches, and sort by last modified date
 const branches = fs.readdirSync(previewsDir)
@@ -19,16 +43,18 @@ const branches = fs.readdirSync(previewsDir)
   })
   .map(name => {
     const fullPath = path.join(previewsDir, name);
-    const stat = fs.statSync(fullPath);
+    const mtime = getLastCommitTime(fullPath);
     return {
       name,
-      mtime: stat.mtime,
-      mtimeStr: stat.mtime.toLocaleDateString('en-US', { 
+      mtime: mtime,
+      mtimeStr: mtime.toLocaleString('en-US', { 
+        timeZone: 'America/New_York',
         year: 'numeric', 
         month: 'short', 
         day: 'numeric',
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        hour12: true
       })
     };
   })
