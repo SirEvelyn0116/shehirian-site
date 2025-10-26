@@ -85,7 +85,7 @@ To remove a branch from the preview index:
 
 ## Generated Index Page
 
-The index page at `https://yourusername.github.io/shehirian-site/` displays:
+The index page at `https://<your-username>.github.io/shehirian-site/` displays:
 
 ### Previews Section
 - Shows branches marked as type "preview"
@@ -124,6 +124,8 @@ Each branch shows:
 - The index will be regenerated with the correct categorization
 
 ### Timestamps in wrong timezone
-- All timestamps are automatically displayed in EST/EDT
+- All timestamps are automatically displayed in EST/EDT (America/New_York timezone)
+- This timezone is configured for this project in `generate-index.js`
 - The workflow stores timestamps in ISO 8601 UTC format
 - Conversion to EST/EDT happens during index generation
+- To change timezone: Edit the `timeZone` option in `generate-index.js` (line ~52)
