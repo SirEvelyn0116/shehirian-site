@@ -63,13 +63,13 @@ html, body {
 
 .label {
   position: absolute;
-  left: -140px;
+  right: 20px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(150px);
   background-color: black;
   color: white;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 8px 16px;
+  border-radius: 20px 0 0 20px;
   font-size: 14px;
   white-space: nowrap;
   opacity: 0;
@@ -77,11 +77,16 @@ html, body {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.dot:hover .label,
 .dot.active .label {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-50%) translateX(-10px);
+  transform: translateY(-50%) translateX(0);
+}
+
+.dot:hover .label {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
 }
 
 /* Recipe Grid */

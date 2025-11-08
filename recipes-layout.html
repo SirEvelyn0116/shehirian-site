@@ -86,6 +86,57 @@
     ]
   }
   </script>
+
+  <script>
+    // Navigation scroll tracking
+    const sections = document.querySelectorAll('.section');
+    const navDots = document.querySelectorAll('.dot');
+
+    // Update active nav on scroll
+    function updateActiveNav() {
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navDots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('data-section') === currentSection) {
+          dot.classList.add('active');
+        }
+      });
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', updateActiveNav);
+
+    // Handle navigation clicks
+    navDots.forEach(dot => {
+      dot.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSection = this.getAttribute('data-section');
+        const targetElement = document.getElementById(targetSection);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          
+          // Update active state immediately
+          navDots.forEach(d => d.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+
+    // Initialize on page load
+    updateActiveNav();
+  </script>
 </body>
 
 </html>
