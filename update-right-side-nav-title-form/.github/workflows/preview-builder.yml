@@ -1,0 +1,103 @@
+name: Branch Preview Builder
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout current branch (e.g., feature-preview-x)
+      - uses: actions/checkout@v3
+        with:
+          path: current
+
+      # Step 2: Checkout main branch to get latest generate-index.js and branches.json
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+          path: main
+
+      # Step 3: Checkout gh-pages branch to preserve existing previews
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      # Step 4: Merge current branch's static files into gh-pages/branch-name/
+      - name: Merge new preview into gh-pages folder
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]')
+          mkdir -p gh-pages/$BRANCH_NAME
+          rsync -av --exclude='.git' --exclude='gh-pages' current/ gh-pages/$BRANCH_NAME/
+
+      # Step 5: Update branches.json with current branch metadata
+      - name: Update branch metadata
+        run: |
+          cd gh-pages
+          BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]')
+          
+          # Copy branches.json from main if it doesn't exist in gh-pages
+          if [ ! -f branches.json ] && [ -f ../main/branches.json ]; then
+            cp ../main/branches.json branches.json
+          fi
+          
+          # Update or add current branch metadata using Node.js
+          node -e "
+            const fs = require('fs');
+            const branchName = process.env.BRANCH_NAME || '${GITHUB_REF##*/}'.toLowerCase();
+            
+            let config = { branches: [] };
+            if (fs.existsSync('branches.json')) {
+              try {
+                config = JSON.parse(fs.readFileSync('branches.json', 'utf8'));
+              } catch (err) {
+                console.log('Could not parse existing branches.json, creating new one');
+              }
+            }
+            
+            const now = new Date().toISOString();
+            const existingBranch = config.branches.find(b => b.name === branchName);
+            
+            if (existingBranch) {
+              existingBranch.lastModified = now;
+            } else {
+              config.branches.push({
+                name: branchName,
+                type: 'feature',
+                created: now,
+                lastModified: now
+              });
+            }
+            
+            fs.writeFileSync('branches.json', JSON.stringify(config, null, 2));
+            console.log('Updated branches.json for branch: ' + branchName);
+          "
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+
+      # Step 6: Copy generate-index.js from main branch to gh-pages root
+      - name: Copy generate-index.js from main branch
+        run: cp main/generate-index.js gh-pages/generate-index.js
+      
+      # Step 7: Copy branches.json from main branch if it doesn't exist
+      - name: Ensure branches.json exists
+        run: |
+          if [ ! -f gh-pages/branches.json ] && [ -f main/branches.json ]; then
+            cp main/branches.json gh-pages/branches.json
+          fi
+      
+      # Step 8: Generate index.html with links to all previews
+      - name: Generate index.html
+        run: |
+          cd gh-pages
+          node generate-index.js
+
+      # Step 9: Deploy updated gh-pages folder
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages

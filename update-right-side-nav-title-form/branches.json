@@ -1,0 +1,52 @@
+{
+  "branches": [
+    {
+      "name": "feature-dot-navigation",
+      "type": "preview",
+      "created": "2025-10-15T12:00:00-04:00",
+      "lastModified": "2025-10-15T12:00:00-04:00"
+    },
+    {
+      "name": "feature-test-preview",
+      "type": "feature",
+      "created": "2025-10-16T10:00:00-04:00",
+      "lastModified": "2025-10-16T10:00:00-04:00"
+    },
+    {
+      "name": "dot-navigation-mock-up",
+      "type": "preview",
+      "created": "2025-10-14T09:00:00-04:00",
+      "lastModified": "2025-10-14T09:00:00-04:00"
+    },
+    {
+      "name": "feature-language-switcher-failed",
+      "type": "feature",
+      "created": "2025-10-12T14:00:00-04:00",
+      "lastModified": "2025-10-12T14:00:00-04:00"
+    },
+    {
+      "name": "feature-recipes-layout",
+      "type": "preview",
+      "created": "2025-10-10T11:00:00-04:00",
+      "lastModified": "2025-10-10T11:00:00-04:00"
+    },
+    {
+      "name": "feature-static-language-switcher",
+      "type": "feature",
+      "created": "2025-10-08T16:00:00-04:00",
+      "lastModified": "2025-10-08T16:00:00-04:00"
+    },
+    {
+      "name": "first-mockup",
+      "type": "preview",
+      "created": "2025-10-05T13:00:00-04:00",
+      "lastModified": "2025-10-05T13:00:00-04:00"
+    },
+    {
+      "name": "mock-up",
+      "type": "preview",
+      "created": "2025-10-04T10:00:00-04:00",
+      "lastModified": "2025-10-04T10:00:00-04:00"
+    }
+  ]
+}
