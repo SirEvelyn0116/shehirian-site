@@ -15,20 +15,39 @@
       <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
       <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
     </div>
-    <div class="home section" id="home">
+    <div class="home">
       <div class="title" data-i18n="company">shehirian bulgor inc.</div>
-      <nav class="dot-nav">
-        <a href="#home" class="dot active" data-section="home" title="Home"><span class="label" data-i18n="nav_home">Home</span></a>
-        <a href="#about-us" class="dot" data-section="about-us" title="About"><span class="label" data-i18n="nav_about">About</span></a>
-        <a href="#products-carousel" class="dot" data-section="products-carousel" title="Products"><span class="label" data-i18n="nav_products">Products</span></a>
-        <a href="#recipes" class="dot" data-section="recipes" title="Recipes"><span class="label" data-i18n="nav_recipes">Recipes</span></a>
-        <a href="#contact" class="dot" data-section="contact" title="Contact"><span class="label" data-i18n="nav_contact">Contact us</span></a>
-      </nav>
+      
+      <!-- Certifications Preview - Left Aligned at Bottom -->
+      <div class="certifications-preview">
+        <a href="certifications.html" class="cert-badge-small" title="BRC Global Standard">
+          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="Safe Quality Food">
+          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="FSSC 22000">
+          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="IFS Food Standard">
+          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+        </a>
+      </div>
+      
+      <div class="mid-spacer"></div>
+      <div class="nav">
+        <h2 data-i18n="nav_home">Home</h2>
+        <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
+        <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
+        <h2><a href="#recipes" data-i18n="nav_recipes">Recipes</a></h2>
+        <h2><a href="#certifications" data-i18n="nav_certifications">Certifications</a></h2>
+        <h2><a href="#contact" data-i18n="nav_contact">Contact us</a></h2>
+      </div>
     </div>
     <!-- Spacer to offset fixed nav -->
-    <!-- div class="spacer"></div -->
+    <div class="spacer"></div>
     <!-- About US -->
-    <section id="about-us" class="page-section section">
+    <section id="about-us" class="page-section">
       <h2 data-i18n="about_title">About US</h2>
       <p data-i18n="about_line1">Family owned and operated since 1958</p>
       <p data-i18n="about_line2">Scroll down to explore our products</p>
@@ -87,7 +106,32 @@
     </section>
     <!-- END RECIPE SECTION -->
 
-    <section id="contact" class="contact-section section">
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="certifications-section">
+      <h2 data-i18n="certifications_title">Our Certifications</h2>
+      <p class="certifications-intro" data-i18n="certifications_intro">GFSI-Recognized Food Safety Standards</p>
+      <div class="certifications-container">
+        <a href="certifications.html" class="cert-badge" title="BRC Global Standard">
+          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+          <span data-i18n="cert_brc">BRC</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="Safe Quality Food">
+          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+          <span data-i18n="cert_sqf">SQF</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="FSSC 22000">
+          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+          <span data-i18n="cert_fssc">FSSC 22000</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="IFS Food Standard">
+          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+          <span data-i18n="cert_ifs">IFS</span>
+        </a>
+      </div>
+    </section>
+    <!-- END CERTIFICATIONS SECTION -->
+
+    <section id="contact" class="contact-section">
       <h2 data-i18n="contact_title">Contact Us</h2>
       <div class="contact-container">
         <!-- Contact Info -->
@@ -123,11 +167,12 @@
         nav_about: "About",
         nav_products: "Products",
         nav_recipes: "Recipes",
+        nav_certifications: "Certifications",
         nav_contact: "Contact us",
         about_title: "About US",
         about_line1: "Family owned and operated since 1958",
         about_line2: "Scroll down to explore our products",
-        products_title: "Our Companies",
+        products_title: "Our Products",
         product_soft_fine: "soft wheat fine",
         product_soft_medium: "soft wheat medium",
         product_soft_coarse: "soft wheat coarse",
@@ -135,6 +180,12 @@
         product_red_fine: "red wheat fine",
         product_red_medium: "red wheat medium",
         product_red_coarse: "red wheat coarse",
+        certifications_title: "Our Certifications",
+        certifications_intro: "GFSI-Recognized Food Safety Standards",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
         contact_title: "Contact Us",
         contact_get_in_touch: "Get in Touch",
         contact_address_label: "Address:",
@@ -152,11 +203,12 @@
         nav_about: "À propos",
         nav_products: "Produits",
         nav_recipes: "Recettes",
+        nav_certifications: "Certifications",
         nav_contact: "Contactez-nous",
         about_title: "À propos de nous",
         about_line1: "Entreprise familiale depuis 1958",
         about_line2: "Faites défiler pour explorer nos produits",
-        products_title: "Nos Entreprises",
+        products_title: "Nos Produits",
         product_soft_fine: "blé tendre fin",
         product_soft_medium: "blé tendre moyen",
         product_soft_coarse: "blé tendre grossier",
@@ -164,6 +216,12 @@
         product_red_fine: "blé rouge fin",
         product_red_medium: "blé rouge moyen",
         product_red_coarse: "blé rouge grossier",
+        certifications_title: "Nos Certifications",
+        certifications_intro: "Normes de sécurité alimentaire reconnues par GFSI",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
         contact_title: "Contactez-nous",
         contact_get_in_touch: "Entrer en contact",
         contact_address_label: "Adresse :",
@@ -180,12 +238,13 @@
         nav_home: "الرئيسية",
         nav_about: "حول",
         nav_products: "المنتجات",
-        nav_recipes: "وصفات",
+        nav_recipes: "الوصفات",
+        nav_certifications: "الشهادات",
         nav_contact: "اتصل بنا",
         about_title: "معلومات عنا",
         about_line1: "تأسست وتدار عائلياً منذ 1958",
         about_line2: "قم بالتمرير للأسفل لاستكشاف منتجاتنا",
-        products_title: "شركاتنا",
+        products_title: "منتجاتنا",
         product_soft_fine: "برغل قمح ناعم",
         product_soft_medium: "برغل قمح متوسط",
         product_soft_coarse: "برغل قمح خشن",
@@ -193,6 +252,12 @@
         product_red_fine: "برغل أحمر ناعم",
         product_red_medium: "برغل أحمر متوسط",
         product_red_coarse: "برغل أحمر خشن",
+        certifications_title: "شهاداتنا",
+        certifications_intro: "معايير سلامة الغذاء المعتمدة من GFSI",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
         contact_title: "اتصل بنا",
         contact_get_in_touch: "تواصل معنا",
         contact_address_label: "العنوان:",
@@ -221,7 +286,5 @@
     }
     window.onload = function() { setLanguage('en'); }
   </script>
-
-  <script src="scroll-nav.js"></script>
 </body>
 </html>
