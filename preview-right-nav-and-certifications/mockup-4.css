@@ -33,6 +33,8 @@ body, html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
 }
 .title {
   font-size: 10vh;
@@ -47,13 +49,13 @@ body, html {
     height: 100vh;
 }
 .page-section {
-    min-height: 50vh;
+    min-height: 100vh;
 }
 .mid-spacer {
     width: 33%;
 }
 .lang-switcher-nav {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   display: flex;
@@ -91,39 +93,73 @@ body, html {
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
-/* ... rest of your existing CSS ... */
-.nav {
-  color: wheat;
+/* Dot Navigation */
+.dot-nav {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  text-align: right;
+  gap: 15px;
+  z-index: 1000;
 }
 
-.nav h2 {
-  margin: 0;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  border-radius: 30px 0 0 30px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  width: 300px;
-  opacity: 0.75;
-  font-weight: 300;
-  color: black;
-
+.dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+  overflow: visible;
 }
 
-.nav h2:hover {
+.dot:hover,
+.dot.active {
+  background-color: black;
+}
+
+.label {
+  position: absolute;
+  left: -140px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: black;
   color: white;
-  background-color: wheat;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-/* Spacer to offset fixed nav */
-.spacer {
-    height: 100%;
-    width: 30%;
+
+.dot:hover .label {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(-10px);
 }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .dot-nav {
+    right: 10px;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .section {
+    font-size: 32px;
+    padding: 20px;
+  }
+}
+
 /* Carousel section */
 #products-carousel {
   padding: 40px 0;
@@ -152,6 +188,25 @@ body, html {
     display: flex;
     flex-direction:column;
 }
+.swath.icon .image-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+.swath.icon .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.5s ease;
+  transform: scale(1.5);
+  transform-origin: center center;
+}
+.swath.icon:hover .image-container img, .swath.icon:focus-within .image-container img {
+  transform: scale(2);
+}
 .swath:hover {
   flex: 2;
   background-color: wheat;
@@ -163,10 +218,10 @@ body, html {
     overflow: hidden;
 }
 .image-container img {
-    width: 500%;
+    /* width: 500%; */
     height: auto;
     object-fit: cover;
-    object-position: 10% 30%;
+    object-position: 50% 40%;
 }
 .swath {
     margin-bottom: 10px;
@@ -344,3 +399,264 @@ opacity: 1;
     padding: 16px 10px 12px 10px;
   }
 }
+
+/* === COMPANIES SECTION === */
+.companies-section {
+  padding: 60px 20px;
+  background-color: #f8f6f2;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.companies-section h2 {
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #55422c;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+}
+
+.company-card {
+  background-color: #5a6345;
+  color: #f8f6f2;
+  padding: 0;
+  border-radius: 30px;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.company-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+.company-image-container {
+  width: 100%;
+  /* height: 280px; */ 
+  overflow: hidden;
+  border-radius: 30px 30px 0 0;
+}
+
+.company-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.company-info {
+  padding: 24px 20px 24px 20px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #5a6345;
+}
+
+.company-card h3 {
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  color: #a36b1b;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.company-card p {
+  font-size: 1rem;
+  margin: 0;
+  color: #2a241b;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .companies-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .companies-section h2 {
+    font-size: 2rem;
+  }
+  
+  .company-card {
+    min-height: 350px;
+  }
+  
+  .company-image-container {
+    height: 240px;
+  }
+  
+  .company-info {
+    padding: 20px 16px 20px 16px;
+  }
+  
+  .company-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .company-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Certifications Section */
+.certifications-section {
+  background-color: #f5f5f0;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+}
+
+.certifications-section h2 {
+  font-size: 2.5rem;
+  color: #5a6345;
+  margin-bottom: 10px;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-weight: 600;
+}
+
+.certifications-intro {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.certifications-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge span {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a6345;
+}
+
+.cert-badge:hover img {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cert-badge:hover span {
+  color: #a36b1b;
+}
+
+@media (max-width: 600px) {
+  .certifications-section {
+    padding: 40px 15px;
+  }
+  
+  .certifications-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .certifications-intro {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .certifications-container {
+    gap: 20px;
+  }
+  
+  .cert-badge img {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .cert-badge span {
+    font-size: 0.85rem;
+  }
+}
+
+/* Certifications Preview in Home Section */
+.certifications-preview {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 10;
+}
+
+.cert-badge-small {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.cert-badge-small img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge-small:hover img {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .certifications-preview {
+    bottom: 20px;
+    left: 20px;
+    gap: 10px;
+  }
+  
+  .cert-badge-small img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
