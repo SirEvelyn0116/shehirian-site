@@ -18,12 +18,12 @@
     <div class="home">
       <div class="title" data-i18n="company">shehirian bulgor inc.</div>
       <div class="mid-spacer"></div>
-      <div class="nav">
-        <h2 data-i18n="nav_home">Home</h2>
-        <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
-        <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
-        <h2><a href="#recipes" data-i18n="nav_recipes">Recipes</a></h2>
-        <h2><a href="#contact" data-i18n="nav_contact">Contact us</a></h2>
+      <div class="nav" id="main-nav">
+        <h2 data-i18n="nav_home" data-section="home">Home</h2>
+        <h2 data-i18n="nav_about" data-section="about-us">About</h2>
+        <h2 data-i18n="nav_products" data-section="products-carousel">Products</h2>
+        <h2 data-i18n="nav_recipes" data-section="recipes">Recipes</h2>
+        <h2 data-i18n="nav_contact" data-section="contact">Contact us</h2>
       </div>
     </div>
     <!-- Spacer to offset fixed nav -->
@@ -274,10 +274,20 @@
     };
 
     // Language switcher with highlight
+    let currentLanguage = 'en';
     function setLanguage(lang) {
+      currentLanguage = lang;
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if(translations[lang][key]) el.textContent = translations[lang][key];
+        if(translations[lang][key]) {
+          // Preserve the arrow indicator if present
+          const currentText = el.textContent;
+          const hasArrow = currentText.includes('<');
+          el.textContent = translations[lang][key];
+          if(hasArrow && !el.textContent.includes('<')) {
+            el.textContent = '< ' + el.textContent;
+          }
+        }
       });
       document.body.dir = lang === "ar" ? "rtl" : "ltr";
       // Highlight current language
@@ -285,8 +295,114 @@
       document.getElementById('lang-fr').classList.remove('active-lang');
       document.getElementById('lang-ar').classList.remove('active-lang');
       document.getElementById('lang-' + lang).classList.add('active-lang');
+      
+      // Update nav positioning based on language
+      const nav = document.getElementById('main-nav');
+      if(nav.classList.contains('nav-compact')) {
+        if(lang === 'ar') {
+          nav.classList.add('nav-compact-rtl');
+        } else {
+          nav.classList.remove('nav-compact-rtl');
+        }
+      }
     }
-    window.onload = function() { setLanguage('en'); }
+
+    // Navigation functionality
+    let isCompact = false;
+    let activeNavItem = null;
+
+    function initNavigation() {
+      const navItems = document.querySelectorAll('.nav h2');
+      const nav = document.getElementById('main-nav');
+      
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const section = this.getAttribute('data-section');
+          
+          // If clicking the active nav item (second click), return to home
+          if(activeNavItem === this && isCompact) {
+            returnToHome();
+            return;
+          }
+          
+          // If this is the Home button
+          if(section === 'home') {
+            returnToHome();
+            return;
+          }
+          
+          // Mark this as active and scroll to section
+          activateNavItem(this, section);
+        });
+      });
+    }
+
+    function activateNavItem(item, section) {
+      const nav = document.getElementById('main-nav');
+      const navItems = document.querySelectorAll('.nav h2');
+      
+      // Remove active class and arrow from previously active item
+      if(activeNavItem) {
+        activeNavItem.classList.remove('active-nav');
+        const key = activeNavItem.getAttribute('data-i18n');
+        if(translations[currentLanguage][key]) {
+          activeNavItem.textContent = translations[currentLanguage][key];
+        }
+      }
+      
+      // Set new active item
+      activeNavItem = item;
+      isCompact = true;
+      
+      // Add active class to new item
+      item.classList.add('active-nav');
+      
+      // Add arrow to active item
+      const key = item.getAttribute('data-i18n');
+      if(translations[currentLanguage][key]) {
+        item.textContent = '< ' + translations[currentLanguage][key];
+      }
+      
+      // Move nav to compact mode
+      nav.classList.add('nav-compact');
+      if(currentLanguage === 'ar') {
+        nav.classList.add('nav-compact-rtl');
+      }
+      
+      // Scroll to section
+      const targetSection = document.getElementById(section);
+      if(targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function returnToHome() {
+      const nav = document.getElementById('main-nav');
+      
+      // Remove active class and arrow from active item
+      if(activeNavItem) {
+        activeNavItem.classList.remove('active-nav');
+        const key = activeNavItem.getAttribute('data-i18n');
+        if(translations[currentLanguage][key]) {
+          activeNavItem.textContent = translations[currentLanguage][key];
+        }
+      }
+      
+      activeNavItem = null;
+      isCompact = false;
+      
+      // Return nav to normal mode
+      nav.classList.remove('nav-compact');
+      nav.classList.remove('nav-compact-rtl');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onload = function() {
+      setLanguage('en');
+      initNavigation();
+    }
   </script>
 </body>
 </html>
