@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Shehirian Bulgur - Family Owned Since 1958</title>
+  <title>Mockup Website</title>
   <link rel="stylesheet" href="mockup-4.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
@@ -17,12 +17,30 @@
     </div>
     <div class="home">
       <div class="title" data-i18n="company">shehirian bulgor inc.</div>
+      
+      <!-- Certifications Preview - Left Aligned at Bottom -->
+      <div class="certifications-preview">
+        <a href="certifications.html" class="cert-badge-small" title="BRC Global Standard">
+          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="Safe Quality Food">
+          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="FSSC 22000">
+          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="IFS Food Standard">
+          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+        </a>
+      </div>
+      
       <div class="mid-spacer"></div>
       <div class="nav" id="main-nav">
         <h2 data-i18n="nav_home" data-section="home">Home</h2>
         <h2 data-i18n="nav_about" data-section="about-us">About</h2>
         <h2 data-i18n="nav_products" data-section="products-carousel">Products</h2>
         <h2 data-i18n="nav_recipes" data-section="recipes">Recipes</h2>
+        <h2 data-i18n="nav_certifications" data-section="certifications">Certifications</h2>
         <h2 data-i18n="nav_contact" data-section="contact">Contact us</h2>
       </div>
     </div>
@@ -34,77 +52,84 @@
       <p data-i18n="about_line1">Family owned and operated since 1958</p>
       <p data-i18n="about_line2">Scroll down to explore our products</p>
     </section>
-    <section id="products-carousel" class="page-section">
-      <h2 data-i18n="products_title">Our Products</h2>
-      <div class="carousel">
-        <div class="swath icon" data-tooltip="fine soft wheat">
-          <div class="image-container">
-            <img src='img/fine-bulgor-soft-wheat.jpg' alt='fine soft wheat bulgor'>
+    <section id="products-carousel" class="page-section section companies-section">
+      <h2 data-i18n="products_title">Our Companies</h2>
+      <div class="companies-grid">
+        <a href="shirag-products.html" class="company-card">
+          <div class="company-image-container">
+            <img src="img/Shirag-2.png" alt="Shirag Brand">
           </div>
-          <span data-i18n="product_soft_fine">soft wheat fine</span>
-        </div>
-        <div class="swath icon" data-tooltip="medium soft wheat">
-          <div class="image-container">
-            <img src="img/medium-bulgor-soft-wheat.jpg" alt="medium soft wheat bulgor">
+          <div class="company-info">
+            <h3>Shirag Brand</h3>
+            <p>Premium bulgur wheat products for traditional and modern cuisine</p>
           </div>
-          <span data-i18n="product_soft_medium">soft wheat medium</span>
-        </div>
-        <div class="swath icon" data-tooltip="coarse soft wheat">
-          <div class="image-container">
-            <img src="img/coarse-bulgor-soft-wheat.jpg" alt="coarse soft wheat bulgor">
+        </a>
+        <a href="mr-falafel-products.html" class="company-card">
+          <div class="company-image-container">
+            <img src="img/Mr-Falafel-3.png" alt="Mr. Falafel">
           </div>
-          <span data-i18n="product_soft_coarse">soft wheat coarse</span>
-        </div>
-        <div class="swath icon" data-tooltip="extra coarse soft wheat">
-          <div class="image-container">
-            <img src="img/extra-coarse-bulgor-soft-wheat.jpg" alt="extra coarse soft wheat bulgor">
+          <div class="company-info">
+            <h3>Mr. Falafel</h3>
+            <p>Quality ingredients for authentic Middle Eastern dishes</p>
           </div>
-          <span data-i18n="product_soft_xcoarse">soft wheat extra coarse</span>
-        </div>
-        <div class="swath carousel-bg bg-fine-red" data-tooltip="fine red wheat">
-          <!-- img src="img/fine-bulgor-red-wheat.jpg" -->
-          <span data-i18n="product_red_fine">red wheat fine</span>
-        </div>
-        <div class="swath carousel-bg bg-medium-red" data-tooltip="medium red wheat">
-          <!-- img src="img/medium-bulgor-red-wheat.jpg" alt="medium red wheat bulgor" -->
-          <span data-i18n="product_red_medium">red wheat medium</span>
-        </div>
-        <div class="swath carousel-bg bg-coarse-red" data-tooltip="coarse red wheat">
-          <!-- img src="img/coarse-bulgor-red-wheat.jpg" alt="coarse red wheat bulgor" -->
-          <span data-i18n="product_red_coarse">red wheat coarse</span>
-        </div>
+        </a>
       </div>
     </section>
     <!-- RECIPE SECTION 4 (Added) -->
-    <section id="recipes" class="section-recipes">
-      <h2 data-i18n="recipes_title">Featured Recipes</h2>
+    <section id="recipes" class="section-recipes section">
+      <h2>Featured Recipes</h2>
       <div class="recipe-grid">
         <div class="recipe-card">
-          <h3 data-i18n="recipe1_title">Bulgur Wheat Salad</h3>
-          <p data-i18n="recipe1_desc">Fresh herbs, lemon dressing, and hearty bulgur.</p>
+          <h3>Bulgur Wheat Salad</h3>
+          <p>Fresh herbs, lemon dressing, and hearty bulgur.</p>
           <ul>
-            <li data-i18n="recipe1_ing1">1 cup bulgur wheat</li>
-            <li data-i18n="recipe1_ing2">1/2 cup chopped parsley</li>
-            <li data-i18n="recipe1_ing3">1/4 cup chopped mint</li>
-            <li data-i18n="recipe1_ing4">1/2 cup diced cucumber</li>
-            <li data-i18n="recipe1_ing5">2 tbsp olive oil</li>
-            <li data-i18n="recipe1_ing6">1 tbsp lemon juice</li>
+            <li>1 cup bulgur wheat</li>
+            <li>1/2 cup chopped parsley</li>
+            <li>1/4 cup chopped mint</li>
+            <li>1/2 cup diced cucumber</li>
+            <li>2 tbsp olive oil</li>
+            <li>1 tbsp lemon juice</li>
           </ul>
         </div>
         <div class="recipe-card">
-          <h3 data-i18n="recipe2_title">Spiced Lentil Soup</h3>
-          <p data-i18n="recipe2_desc">Comforting, protein-rich, and perfect for fall.</p>
+          <h3>Spiced Lentil Soup</h3>
+          <p>Comforting, protein-rich, and perfect for fall.</p>
           <ul>
-            <li data-i18n="recipe2_ing1">1 cup red lentils</li>
-            <li data-i18n="recipe2_ing2">1 onion</li>
-            <li data-i18n="recipe2_ing3">2 carrots</li>
-            <li data-i18n="recipe2_ing4">1 tsp cumin</li>
-            <li data-i18n="recipe2_ing5">1 tbsp olive oil</li>
+            <li>1 cup red lentils</li>
+            <li>1 onion</li>
+            <li>2 carrots</li>
+            <li>1 tsp cumin</li>
+            <li>1 tbsp olive oil</li>
           </ul>
         </div>
       </div>
     </section>
     <!-- END RECIPE SECTION -->
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="certifications-section">
+      <h2 data-i18n="certifications_title">Our Certifications</h2>
+      <p class="certifications-intro" data-i18n="certifications_intro">GFSI-Recognized Food Safety Standards</p>
+      <div class="certifications-container">
+        <a href="certifications.html" class="cert-badge" title="BRC Global Standard">
+          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+          <span data-i18n="cert_brc">BRC</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="Safe Quality Food">
+          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+          <span data-i18n="cert_sqf">SQF</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="FSSC 22000">
+          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+          <span data-i18n="cert_fssc">FSSC 22000</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="IFS Food Standard">
+          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+          <span data-i18n="cert_ifs">IFS</span>
+        </a>
+      </div>
+    </section>
+    <!-- END CERTIFICATIONS SECTION -->
 
     <section id="contact" class="contact-section">
       <h2 data-i18n="contact_title">Contact Us</h2>
@@ -142,6 +167,7 @@
         nav_about: "About",
         nav_products: "Products",
         nav_recipes: "Recipes",
+        nav_certifications: "Certifications",
         nav_contact: "Contact us",
         about_title: "About US",
         about_line1: "Family owned and operated since 1958",
@@ -154,22 +180,12 @@
         product_red_fine: "red wheat fine",
         product_red_medium: "red wheat medium",
         product_red_coarse: "red wheat coarse",
-        recipes_title: "Featured Recipes",
-        recipe1_title: "Bulgur Wheat Salad",
-        recipe1_desc: "Fresh herbs, lemon dressing, and hearty bulgur.",
-        recipe1_ing1: "1 cup bulgur wheat",
-        recipe1_ing2: "1/2 cup chopped parsley",
-        recipe1_ing3: "1/4 cup chopped mint",
-        recipe1_ing4: "1/2 cup diced cucumber",
-        recipe1_ing5: "2 tbsp olive oil",
-        recipe1_ing6: "1 tbsp lemon juice",
-        recipe2_title: "Spiced Lentil Soup",
-        recipe2_desc: "Comforting, protein-rich, and perfect for fall.",
-        recipe2_ing1: "1 cup red lentils",
-        recipe2_ing2: "1 onion",
-        recipe2_ing3: "2 carrots",
-        recipe2_ing4: "1 tsp cumin",
-        recipe2_ing5: "1 tbsp olive oil",
+        certifications_title: "Our Certifications",
+        certifications_intro: "GFSI-Recognized Food Safety Standards",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
         contact_title: "Contact Us",
         contact_get_in_touch: "Get in Touch",
         contact_address_label: "Address:",
@@ -187,6 +203,7 @@
         nav_about: "À propos",
         nav_products: "Produits",
         nav_recipes: "Recettes",
+        nav_certifications: "Certifications",
         nav_contact: "Contactez-nous",
         about_title: "À propos de nous",
         about_line1: "Entreprise familiale depuis 1958",
@@ -199,22 +216,12 @@
         product_red_fine: "blé rouge fin",
         product_red_medium: "blé rouge moyen",
         product_red_coarse: "blé rouge grossier",
-        recipes_title: "Recettes en vedette",
-        recipe1_title: "Salade de blé bulgur",
-        recipe1_desc: "Herbes fraîches, vinaigrette au citron et bulgur copieux.",
-        recipe1_ing1: "1 tasse de blé bulgur",
-        recipe1_ing2: "1/2 tasse de persil haché",
-        recipe1_ing3: "1/4 tasse de menthe hachée",
-        recipe1_ing4: "1/2 tasse de concombre en dés",
-        recipe1_ing5: "2 c. à soupe d'huile d'olive",
-        recipe1_ing6: "1 c. à soupe de jus de citron",
-        recipe2_title: "Soupe de lentilles épicée",
-        recipe2_desc: "Réconfortante, riche en protéines et parfaite pour l'automne.",
-        recipe2_ing1: "1 tasse de lentilles rouges",
-        recipe2_ing2: "1 oignon",
-        recipe2_ing3: "2 carottes",
-        recipe2_ing4: "1 c. à thé de cumin",
-        recipe2_ing5: "1 c. à soupe d'huile d'olive",
+        certifications_title: "Nos Certifications",
+        certifications_intro: "Normes de sécurité alimentaire reconnues par GFSI",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
         contact_title: "Contactez-nous",
         contact_get_in_touch: "Entrer en contact",
         contact_address_label: "Adresse :",
@@ -231,7 +238,8 @@
         nav_home: "الرئيسية",
         nav_about: "حول",
         nav_products: "المنتجات",
-        nav_recipes: "وصفات",
+        nav_recipes: "الوصفات",
+        nav_certifications: "الشهادات",
         nav_contact: "اتصل بنا",
         about_title: "معلومات عنا",
         about_line1: "تأسست وتدار عائلياً منذ 1958",
@@ -244,22 +252,12 @@
         product_red_fine: "برغل أحمر ناعم",
         product_red_medium: "برغل أحمر متوسط",
         product_red_coarse: "برغل أحمر خشن",
-        recipes_title: "وصفات مميزة",
-        recipe1_title: "سلطة البرغل",
-        recipe1_desc: "أعشاب طازجة وصلصة الليمون وبرغل شهي.",
-        recipe1_ing1: "1 كوب برغل",
-        recipe1_ing2: "1/2 كوب بقدونس مفروم",
-        recipe1_ing3: "1/4 كوب نعناع مفروم",
-        recipe1_ing4: "1/2 كوب خيار مقطع",
-        recipe1_ing5: "2 ملعقة كبيرة زيت زيتون",
-        recipe1_ing6: "1 ملعقة كبيرة عصير ليمون",
-        recipe2_title: "حساء العدس بالبهارات",
-        recipe2_desc: "مريح وغني بالبروتين ومثالي للخريف.",
-        recipe2_ing1: "1 كوب عدس أحمر",
-        recipe2_ing2: "1 بصلة",
-        recipe2_ing3: "2 جزر",
-        recipe2_ing4: "1 ملعقة صغيرة كمون",
-        recipe2_ing5: "1 ملعقة كبيرة زيت زيتون",
+        certifications_title: "شهاداتنا",
+        certifications_intro: "معايير سلامة الغذاء المعتمدة من GFSI",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
         contact_title: "اتصل بنا",
         contact_get_in_touch: "تواصل معنا",
         contact_address_label: "العنوان:",
@@ -310,6 +308,7 @@
     // Navigation functionality
     let isCompact = false;
     let activeNavItem = null;
+    let isScrolling = false;
 
     function initNavigation() {
       const navItems = document.querySelectorAll('.nav h2');
@@ -335,11 +334,83 @@
           activateNavItem(this, section);
         });
       });
+
+      // Add scroll event listener
+      let scrollTimeout;
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(handleScroll, 100);
+      });
+    }
+
+    function handleScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const sections = document.querySelectorAll('section[id]');
+      
+      // If at the top of the page (within 100px), return to home
+      if (scrollY < 100) {
+        if (isCompact) {
+          returnToHome();
+        }
+        return;
+      }
+      
+      // Find which section we're in
+      let currentSection = null;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        // Check if we're in this section (with some offset for better UX)
+        if (scrollY >= sectionTop - 150 && scrollY < sectionTop + sectionHeight - 150) {
+          currentSection = section.id;
+        }
+      });
+      
+      // If we found a section and it's not home, activate it
+      if (currentSection && currentSection !== 'home') {
+        const navItem = document.querySelector(`[data-section="${currentSection}"]`);
+        if (navItem && navItem !== activeNavItem) {
+          activateNavItemByScroll(navItem, currentSection);
+        }
+      }
+    }
+
+    function activateNavItemByScroll(item, section) {
+      // Similar to activateNavItem but without scrolling
+      const nav = document.getElementById('main-nav');
+      
+      // Remove active class and arrow from previously active item
+      if(activeNavItem) {
+        activeNavItem.classList.remove('active-nav');
+        const key = activeNavItem.getAttribute('data-i18n');
+        if(translations[currentLanguage][key]) {
+          activeNavItem.textContent = translations[currentLanguage][key];
+        }
+      }
+      
+      // Set new active item
+      activeNavItem = item;
+      isCompact = true;
+      
+      // Add active class to new item
+      item.classList.add('active-nav');
+      
+      // Add arrow to active item
+      const key = item.getAttribute('data-i18n');
+      if(translations[currentLanguage][key]) {
+        item.textContent = '< ' + translations[currentLanguage][key];
+      }
+      
+      // Move nav to compact mode
+      nav.classList.add('nav-compact');
+      if(currentLanguage === 'ar') {
+        nav.classList.add('nav-compact-rtl');
+      }
     }
 
     function activateNavItem(item, section) {
       const nav = document.getElementById('main-nav');
-      const navItems = document.querySelectorAll('.nav h2');
       
       // Remove active class and arrow from previously active item
       if(activeNavItem) {
